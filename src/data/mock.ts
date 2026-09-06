@@ -58,8 +58,8 @@ export const chapterInfo = {
   location: "Department of Mechanical Engineering, KUET, Khulna-9203, Bangladesh",
   coordinates: "22.8998° N, 89.5024° E",
   socials: {
-    facebook: "https://www.facebook.com/imeche.kuet/",
-    linkedin: "https://www.linkedin.com/company/imeche-kuet/",
+    facebook: "https://www.facebook.com/IMechE.KUET/",
+    linkedin: "https://www.linkedin.com/company/imeche-kuet-student-chapter/posts/?feedView=all",
     instagram: "https://www.instagram.com/imeche_kuet/",
     youtube: "https://www.youtube.com/@imeche-kuet",
   },
@@ -215,7 +215,7 @@ export const team: TeamMember[] = [
     committee: "Executive Board",
     roleType: "High Committee",
     bio: "Leading the strategic vision, international engineering competitions, and accreditation expansion of IMechE KUET Student Chapter.",
-    socials: { linkedin: "https://www.linkedin.com/company/imeche-kuet/", email: "chair.imeche@kuet.ac.bd" }
+    socials: { linkedin: "https://www.linkedin.com/company/imeche-kuet-student-chapter/posts/?feedView=all", email: "chair.imeche@kuet.ac.bd" }
   },
   {
     id: "auritra-sharma",
@@ -226,7 +226,7 @@ export const team: TeamMember[] = [
     committee: "Executive Board",
     roleType: "High Committee",
     bio: "Spearheading chapter operations, technical workshops, and collaboration across engineering departments.",
-    socials: { linkedin: "https://www.linkedin.com/company/imeche-kuet/", email: "vicechair.imeche@kuet.ac.bd" }
+    socials: { linkedin: "https://www.linkedin.com/company/imeche-kuet-student-chapter/posts/?feedView=all", email: "vicechair.imeche@kuet.ac.bd" }
   },
   {
     id: "aseer-awsaf",
@@ -237,7 +237,7 @@ export const team: TeamMember[] = [
     committee: "Executive Board",
     roleType: "High Committee",
     bio: "Overseeing chapter governance, administrative communications, and liaison with IMechE Bangladesh Group.",
-    socials: { linkedin: "https://www.linkedin.com/company/imeche-kuet/", email: "gs.imeche@kuet.ac.bd" }
+    socials: { linkedin: "https://www.linkedin.com/company/imeche-kuet-student-chapter/posts/?feedView=all", email: "gs.imeche@kuet.ac.bd" }
   },
   {
     id: "talukder-farhan",
@@ -248,7 +248,7 @@ export const team: TeamMember[] = [
     committee: "Executive Board",
     roleType: "High Committee",
     bio: "Managing chapter fiscal budgeting, sponsorship allocation, and financial compliance for all annual initiatives.",
-    socials: { linkedin: "https://www.linkedin.com/company/imeche-kuet/", email: "treasurer.imeche@kuet.ac.bd" }
+    socials: { linkedin: "https://www.linkedin.com/company/imeche-kuet-student-chapter/posts/?feedView=all", email: "treasurer.imeche@kuet.ac.bd" }
   },
 
   // 2. Organizing Secretaries
