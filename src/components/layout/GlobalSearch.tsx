@@ -64,7 +64,7 @@ export function GlobalSearch() {
                 <input
                   type="text"
                   autoFocus
-                  placeholder="Search events, projects, members..."
+                  placeholder="Search events, team members..."
                   value={query}
                   onChange={(e) => setQuery(e.target.value)}
                   className="w-full bg-[#1e1e1e] border-b-2 border-primary/50 p-6 pl-14 text-2xl font-display text-white placeholder:text-neutral/50 focus:outline-none focus:border-primary transition-colors rounded-t-lg shadow-2xl"
@@ -85,22 +85,6 @@ export function GlobalSearch() {
                             <Link href={`/events/${e.id}`} onClick={closeSearch} className="group block p-2 hover:bg-white/5 rounded">
                               <span className="font-display text-2xl text-white group-hover:text-primary transition-colors">{e.title}</span>
                               <span className="ml-4 text-xs font-mono text-neutral">{e.date} {e.year}</span>
-                            </Link>
-                          </li>
-                        ))}
-                      </ul>
-                    </div>
-                  )}
-
-                  {filteredProjects.length > 0 && (
-                    <div>
-                      <h3 className="text-xs tracking-widest uppercase font-semibold text-primary mb-4 border-b border-white/10 pb-2 font-mono">Projects</h3>
-                      <ul className="space-y-4">
-                        {filteredProjects.map(p => (
-                          <li key={p.id}>
-                            <Link href={`/projects/${p.id}`} onClick={closeSearch} className="group block p-2 hover:bg-white/5 rounded">
-                              <span className="font-display text-2xl text-white group-hover:text-primary transition-colors">{p.title}</span>
-                              <span className="ml-4 text-xs uppercase tracking-widest text-primary font-mono">{p.category}</span>
                             </Link>
                           </li>
                         ))}

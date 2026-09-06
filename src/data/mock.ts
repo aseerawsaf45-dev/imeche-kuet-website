@@ -36,7 +36,7 @@ export interface TeamMember {
   deptCode: "ME" | "MTE" | "TE" | "MSE" | "ChE" | "IEM" | string;
   batch?: string;
   committee: string;
-  roleType: "High Committee" | "Secretariat" | "Chief" | "Manager" | "Officer" | "Director" | "Executive" | "Advisor";
+  roleType: "High Committee" | "Secretariat" | "Chief" | "Manager" | "Officer" | "Director" | "Executive" | "Advisor" | "Analyst";
   bio?: string;
   socials?: { linkedin?: string; email?: string; facebook?: string };
 }
@@ -45,16 +45,18 @@ export const chapterInfo = {
   name: "IMechE KUET Student Chapter",
   fullName: "Institution of Mechanical Engineers - KUET Student Chapter",
   shortName: "IMechE KUET",
-  established: "2018",
+  established: "2015",
   parentBody: "IMechE Bangladesh & South Asia Region",
   university: "Khulna University of Engineering & Technology (KUET)",
   faculty: "Faculty of Mechanical Engineering, KUET",
   department: "Department of Mechanical Engineering (Est. 1967)",
-  membersCount: "500+",
+  membersCount: "50+",
+  alumniCount: "200+",
   vision: "Improving the world through engineering.",
   globalNetwork: "Over 120,000 members across 140 countries since 1847",
   email: "imeche.kuet@gmail.com",
   contactEmail: "imeche@me.kuet.ac.bd",
+  joinFormUrl: "https://docs.google.com/forms/d/e/1FAIpQLSc_2IW3r4Puhv0D0273WoyeV53JMxprDV3IGy5WsXbDErFXPQ/viewform",
   location: "Department of Mechanical Engineering, KUET, Khulna-9203, Bangladesh",
   coordinates: "22.8998° N, 89.5024° E",
   socials: {
@@ -64,9 +66,7 @@ export const chapterInfo = {
     youtube: "https://www.youtube.com/@imeche-kuet",
   },
   contacts: [
-    { name: "Tahsin Hossain", role: "Chair", phone: "+880 1712-345678", email: "chair.imeche@kuet.ac.bd" },
-    { name: "Aseer Awsaf", role: "General Secretary", phone: "+880 1812-987654", email: "gs.imeche@kuet.ac.bd" },
-    { name: "Al Jubayer", role: "Chief of External Affairs", phone: "+880 1912-456789", email: "external.imeche@kuet.ac.bd" },
+    { name: "Tahsin Hossain", role: "Chair", phone: "+880 1932-867407", email: "tahsin.kuetme@gmail.com" },
   ],
   missions: [
     {
@@ -95,112 +95,133 @@ export const chapterInfo = {
 export const events: EventItem[] = [
   {
     id: "sofe-2026-kuet",
-    title: "Speak Out for Engineering (SOfE) 2026 - KUET Chapter Heats",
-    category: "Global Competition",
-    date: "15 OCT",
+    title: "Speak Out for Engineering (SOfE) 2026 - Intra KUET Heats",
+    category: "Global Flagship Competition",
+    date: "19 SEPT (TENTATIVE)",
     year: "2026",
-    time: "10:00 AM - 4:00 PM",
+    time: "TBA",
     venue: "ME Seminar Hall, Mechanical Engineering Complex, KUET",
     organizers: "IMechE KUET Student Chapter",
-    description: "The official KUET chapter heats of IMechE's flagship global presentation competition. 20-minute mechanical engineering presentations judged 90% on verbal clarity and communication skills. Winners advance to the Bangladesh National and South Asia Finals.",
-    speakers: ["Distinguished Jury from KUET ME Faculty", "IMechE Bangladesh Group Officers"],
+    description: "The official KUET chapter heats of IMechE's premier global engineering communication competition. 20-minute verbal presentations + 10-minute jury defense judged 90% on presentation skills and 10% on technical complexity. 100-word abstract due 13 September 2026.",
+    speakers: ["Distinguished Jury from KUET ME Faculty", "IMechE Bangladesh Group Representatives"],
     schedule: [
       { time: "10:00 AM", activity: "Opening Address & Keynote Speech" },
-      { time: "10:30 AM", activity: "Oral Competitor Presentations (Round 1)" },
-      { time: "01:00 PM", activity: "Lunch & Jury Deliberation" },
-      { time: "02:00 PM", activity: "Oral Competitor Presentations (Round 2)" },
+      { time: "10:30 AM", activity: "Competitor Oral Presentations & Slides (Round 1)" },
+      { time: "01:00 PM", activity: "Lunch & Jury Scoring Deliberation" },
+      { time: "02:00 PM", activity: "Competitor Oral Presentations (Round 2)" },
       { time: "03:45 PM", activity: "Awards Ceremony (£300 Winner / £200 Runner-up)" }
     ],
     registrationStatus: "OPEN",
     externalLink: "/sofe"
   },
   {
-    id: "route-to-ceng-kuet",
-    title: "Route to Chartered Engineer (CEng) & Global Qualifications",
-    category: "Professional Development",
-    date: "18 OCT",
+    id: "smart-solar-irrigation-competition-2026",
+    title: "Design Competition 2026: Smart Solar Irrigation System for Smallholder Farmers",
+    category: "Design Competition",
+    date: "15 SEP / 10 OCT",
     year: "2026",
+    time: "Deadline: 11:59 PM BST",
+    venue: "Virtual Submission & Presentation Defense",
+    organizers: "IMechE Bangladesh Panel & IMechE KUET Student Chapter",
+    description: "National engineering design competition challenging teams of 4 undergraduate engineers to design an optimized, low-cost smart solar-powered irrigation system tailored for smallholder agriculture. Required tool: SolidWorks (CAD + Flow Simulation). Registration deadline: 15 Sept 2026; Submission deadline: 10 Oct 2026.",
+    speakers: ["IMechE Bangladesh Panel Judges", "Solar & Agricultural Engineering Experts"],
+    schedule: [
+      { time: "15 SEP 2026", activity: "Team Registration Cutoff (Free Entry)" },
+      { time: "10 OCT 2026", activity: "Final SolidWorks CAD & Simulation Report Submission" },
+      { time: "OCT 2026", activity: "Jury Defense & National Award Presentation" }
+    ],
+    registrationStatus: "OPEN",
+    externalLink: "https://www.facebook.com/IMechE.KUET"
+  },
+  {
+    id: "scientific-research-paper-writing-seminar",
+    title: "Seminar on Scientific Research, Paper Writing & High-Impact Publication",
+    category: "Research Symposium",
+    date: "24 SEP",
+    year: "2024",
+    time: "3:00 PM - 5:30 PM",
+    venue: "Mechanical Engineering Seminar Hall, KUET",
+    organizers: "IMechE KUET Student Chapter",
+    description: "Specialized academic seminar guiding mechanical engineering students through the entire research lifecycle: literature survey methodology, identifying research gaps, scientific manuscript drafting, navigating peer review, and publishing in reputable Scopus/SCI journals.",
+    speakers: ["Senior Faculty Professors, ME Dept, KUET", "Published Postgraduate Researchers"],
+    schedule: [
+      { time: "3:00 PM", activity: "Keynote: Research Methodology in Mechanical Engineering" },
+      { time: "4:00 PM", activity: "Scientific Manuscript Structuring & Journal Selection" },
+      { time: "5:00 PM", activity: "Q&A Session & Thesis Publishing Guidance" }
+    ],
+    registrationStatus: "COMPLETED"
+  },
+  {
+    id: "cfd-aerodynamics-simulation-workshop",
+    title: "Hands-on Workshop: Computational Fluid Dynamics (CFD) & Mesh Modeling",
+    category: "Technical Workshop",
+    date: "12 NOV",
+    year: "2024",
+    time: "10:00 AM - 4:00 PM",
+    venue: "CAD & Simulation Lab, ME Complex, KUET",
+    organizers: "IMechE KUET Technical Committee",
+    description: "Intensive practical computational fluid dynamics session for KUET undergraduates. Participants learned geometry cleanup, structured/unstructured mesh discretization, boundary layer formulation, turbulence modeling, and aerodynamic post-processing using ANSYS Fluent and SolidWorks Flow Simulation.",
+    speakers: ["CFD Research Specialists, ME Dept, KUET", "Lead Simulation Instructors"],
+    schedule: [
+      { time: "10:00 AM", activity: "Governing Navier-Stokes Equations & Turbulence Models" },
+      { time: "11:30 AM", activity: "Hands-on Meshing & Boundary Condition Setup" },
+      { time: "02:00 PM", activity: "Flow Simulation Case Study: Airfoil & Pipe Flow" }
+    ],
+    registrationStatus: "COMPLETED"
+  },
+  {
+    id: "khulna-power-plant-industrial-tour",
+    title: "Industrial Study Tour: Khulna 225MW Power Plant & Shipyard Complex",
+    category: "Industrial Tour",
+    date: "18 JAN",
+    year: "2025",
+    time: "8:00 AM - 5:00 PM",
+    venue: "Khulna Power Station Complex & Khulna Shipyard Ltd.",
+    organizers: "IMechE KUET Industrial Relations",
+    description: "Comprehensive industrial plant excursion providing mechanical undergraduates hands-on visual exposure to heavy industrial machinery. Students inspected combined-cycle steam turbine generation, water-tube boilers, cooling tower arrays, marine vessel hull fabrication, and heavy dockyard welding.",
+    speakers: ["Superintending Engineer, Khulna Power Station", "Head Marine Architect, Khulna Shipyard Ltd."],
+    schedule: [
+      { time: "08:30 AM", activity: "Departure from KUET ME Building" },
+      { time: "10:00 AM", activity: "Combined Cycle Power Plant Turbomachinery Walkthrough" },
+      { time: "02:00 PM", activity: "Khulna Shipyard Dry Dock & Marine Fabrication Tour" }
+    ],
+    registrationStatus: "COMPLETED"
+  },
+  {
+    id: "route-to-ceng-kuet",
+    title: "Route to Chartered Engineer (CEng) & UK-SPEC Professional Accreditations",
+    category: "Professional Development",
+    date: "16 FEB",
+    year: "2025",
     time: "3:00 PM - 5:30 PM",
     venue: "Auditorium, Mechanical Engineering Complex, KUET",
     organizers: "IMechE KUET Student Chapter",
-    description: "An essential roadmap session for KUET mechanical engineering students on attaining Chartered Engineer (CEng) credentials through IMechE UK. Senior Fellows and alumni share application guidelines, competence criteria, and career advantages in international engineering markets.",
+    description: "Guidance roadmap session on navigating the international IMechE UK-SPEC framework toward Chartered Engineer (CEng) and MIMechE credentials. Alumni shared portfolio preparation steps, competence matrices, and career advantages in international engineering markets.",
     speakers: ["Distinguished KUET ME Alumni (CEng, MIMechE)", "Faculty Advisor, ME Dept, KUET"],
     schedule: [
-      { time: "3:00 PM", activity: "Opening Speech & Chapter Welcome" },
-      { time: "3:20 PM", activity: "Understanding UK-SPEC & International Accreditations" },
-      { time: "4:30 PM", activity: "Interactive Q&A & Portfolio Review" }
-    ],
-    registrationStatus: "OPEN"
-  },
-  {
-    id: "cad-design-challenge-kuet",
-    title: "KUET Annual CAD & Mechanical Prototyping Challenge",
-    category: "Engineering Competition",
-    date: "05 NOV",
-    year: "2026",
-    time: "10:00 AM - 4:00 PM",
-    venue: "CAD & Simulation Lab, ME Dept, KUET",
-    organizers: "IMechE KUET Technical Committee",
-    description: "A fast-paced 3D CAD modeling and finite element simulation competition using SolidWorks and ANSYS. Student teams design mechanical transmission mechanisms under strict stress, weight, and manufacturability constraints.",
-    speakers: ["Lead Technical Judge, ME Dept.", "Industry Simulation Specialist"],
-    schedule: [
-      { time: "10:00 AM", activity: "Design Problem Statement Release" },
-      { time: "10:30 AM", activity: "3D Parametric Modeling & FEA Phase" },
-      { time: "02:30 PM", activity: "Design Defense & Jury Evaluation" }
-    ],
-    registrationStatus: "OPEN"
-  },
-  {
-    id: "sustainable-energy-industrial-talk",
-    title: "Sustainable Thermal Systems & Renewable Energy in Bangladesh",
-    category: "Technical Symposium",
-    date: "22 NOV",
-    year: "2026",
-    time: "4:00 PM - 6:30 PM",
-    venue: "Seminar Room 101, ME Building, KUET",
-    organizers: "IMechE KUET Student Chapter",
-    description: "Exploring the transition toward supercritical thermal power cycles, green hydrogen, and industrial waste-heat recovery across Bangladesh's growing industrial corridor.",
-    speakers: ["Chief Engineer, Regional Power Generation", "Professor of Energy Technology, KUET"],
-    schedule: [
-      { time: "4:00 PM", activity: "Thermal Power Infrastructure in Bangladesh" },
-      { time: "5:15 PM", activity: "Industrial Energy Auditing & Waste Heat Recovery" }
+      { time: "3:00 PM", activity: "Understanding UK-SPEC & International Accreditations" },
+      { time: "4:00 PM", activity: "Career Portfolio & Competence Assessment" },
+      { time: "4:45 PM", activity: "Interactive Panel Q&A with Chartered Engineers" }
     ],
     registrationStatus: "COMPLETED"
   },
   {
-    id: "corporate-interview-resume-mastery",
-    title: "Corporate Interview & Technical Resume Mastery",
-    category: "Career & Placement",
-    date: "14 DEC",
-    year: "2026",
-    time: "11:00 AM - 2:00 PM",
-    venue: "Virtual & ME Seminar Hall",
-    organizers: "IMechE KUET Corporate Liaison",
-    description: "Partnered with multinational engineering employers to conduct resume vetting, technical screening simulations, and mock interviews for graduating 4th-year KUET engineers.",
-    speakers: ["HR Talent Acquisition Lead, Multinational FMCG/Manufacturing", "Lead Plant Manager"],
-    schedule: [
-      { time: "11:00 AM", activity: "Engineering Resume Structuring & ATS Standards" },
-      { time: "12:15 PM", activity: "Simulated Assessment Center & Technical Mock Interviews" }
-    ],
-    registrationStatus: "COMPLETED"
-  },
-  {
-    id: "freshers-orientation-imeche-day",
-    title: "IMechE Day & Freshers' Welcome Session",
-    category: "Flagship Event",
-    date: "15 JAN",
-    year: "2027",
+    id: "freshers-orientation-and-induction",
+    title: "Annual Chapter Orientation & Mechanical Freshers' Induction",
+    category: "Chapter Flagship",
+    date: "08 MAR",
+    year: "2025",
     time: "10:00 AM - 3:00 PM",
     venue: "Student Welfare Centre (SWC), KUET",
-    organizers: "IMechE KUET Student Chapter",
-    description: "Welcoming the incoming 1st-year freshers of the Department of Mechanical Engineering into the IMechE KUET family. Includes technical club showcases, senior mentorship talks, and interactive mechanical quizzes.",
+    organizers: "IMechE KUET Executive Committee",
+    description: "Official welcome and orientation event inducting incoming 1st-year undergraduates of the Faculty of Mechanical Engineering into the IMechE KUET family. Featured mechanical project exhibitions, senior mentorship, club registration drives, and mechanical design trivia.",
     speakers: ["Head, Department of Mechanical Engineering, KUET", "Executive Committee, IMechE KUET"],
     schedule: [
-      { time: "10:00 AM", activity: "Induction & Presidential Address" },
-      { time: "11:30 AM", activity: "Senior Mentorship & Engineering Life at KUET" },
-      { time: "01:30 PM", activity: "Mechanical Engineering Quiz & Project Showcase" }
+      { time: "10:00 AM", activity: "Welcome Address & IMechE Global Presentation" },
+      { time: "11:30 AM", activity: "Senior Mentorship Panel: Excelling at KUET ME" },
+      { time: "01:30 PM", activity: "Mechanical Engineering Quiz & Project Demos" }
     ],
-    registrationStatus: "OPEN"
+    registrationStatus: "COMPLETED"
   }
 ];
 
@@ -215,7 +236,7 @@ export const team: TeamMember[] = [
     committee: "Executive Board",
     roleType: "High Committee",
     bio: "Leading the strategic vision, international engineering competitions, and accreditation expansion of IMechE KUET Student Chapter.",
-    socials: { linkedin: "https://www.linkedin.com/company/imeche-kuet-student-chapter/posts/?feedView=all", email: "chair.imeche@kuet.ac.bd" }
+    socials: { linkedin: "https://www.linkedin.com/company/imeche-kuet-student-chapter/posts/?feedView=all", email: "tahsin.kuetme@gmail.com" }
   },
   {
     id: "auritra-sharma",
@@ -443,6 +464,44 @@ export const team: TeamMember[] = [
     deptCode: "ME",
     committee: "Media & Outreach",
     roleType: "Officer"
+  },
+
+  // 9. Policy Analysts
+  {
+    id: "akib-ahmed",
+    name: "Akib Ahmed",
+    position: "Policy Analyst",
+    department: "Department of Mechanical Engineering",
+    deptCode: "ME",
+    committee: "Policy & Strategy",
+    roleType: "Analyst"
+  },
+  {
+    id: "faizus-salehin-nafi",
+    name: "Faizus Salehin Nafi",
+    position: "Policy Analyst",
+    department: "Department of Mechanical Engineering",
+    deptCode: "ME",
+    committee: "Policy & Strategy",
+    roleType: "Analyst"
+  },
+  {
+    id: "gazi-faysal-jubayer",
+    name: "Gazi Faysal Jubayer",
+    position: "Policy Analyst",
+    department: "Department of Mechanical Engineering",
+    deptCode: "ME",
+    committee: "Policy & Strategy",
+    roleType: "Analyst"
+  },
+  {
+    id: "hridam-roshan-paul",
+    name: "Hridam Roshan Paul",
+    position: "Policy Analyst",
+    department: "Department of Mechanical Engineering",
+    deptCode: "ME",
+    committee: "Policy & Strategy",
+    roleType: "Analyst"
   },
 ];
 

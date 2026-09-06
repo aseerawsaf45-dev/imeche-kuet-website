@@ -44,7 +44,6 @@ export function Footer() {
               <li><Link href="/about" className="hover:text-primary transition-colors">About Us</Link></li>
               <li><Link href="/sofe" className="text-white hover:text-primary transition-colors flex items-center gap-1.5"><span className="w-1.5 h-1.5 rounded-full bg-primary animate-pulse"></span> SOfE 2026 Heats</Link></li>
               <li><Link href="/events" className="hover:text-primary transition-colors">Chapter Events</Link></li>
-              <li><Link href="/projects" className="hover:text-primary transition-colors">Initiatives & Projects</Link></li>
               <li><Link href="/team" className="hover:text-primary transition-colors">High Committee & Team</Link></li>
               <li><Link href="/contact" className="hover:text-primary transition-colors">Contact Us</Link></li>
             </ul>
@@ -77,26 +76,6 @@ export function Footer() {
               </li>
               <li>
                 <a 
-                  href={chapterInfo.socials.instagram} 
-                  target="_blank" 
-                  rel="noopener noreferrer" 
-                  className="flex items-center gap-1.5 text-neutral hover:text-primary transition-colors"
-                >
-                  Instagram <ArrowUpRight size={14} />
-                </a>
-              </li>
-              <li>
-                <a 
-                  href={chapterInfo.socials.youtube} 
-                  target="_blank" 
-                  rel="noopener noreferrer" 
-                  className="flex items-center gap-1.5 text-neutral hover:text-primary transition-colors"
-                >
-                  YouTube <ArrowUpRight size={14} />
-                </a>
-              </li>
-              <li>
-                <a 
                   href={`mailto:${chapterInfo.email}`} 
                   className="flex items-center gap-1.5 text-neutral hover:text-primary transition-colors"
                 >
@@ -111,7 +90,16 @@ export function Footer() {
               Membership & Support
             </h3>
             <ul className="flex flex-col gap-3.5 text-sm text-neutral">
-              <li><Link href="/join" className="hover:text-primary transition-colors">Join Chapter</Link></li>
+              <li>
+                <a 
+                  href="https://docs.google.com/forms/d/e/1FAIpQLSc_2IW3r4Puhv0D0273WoyeV53JMxprDV3IGy5WsXbDErFXPQ/viewform"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:text-primary transition-colors"
+                >
+                  Join Chapter
+                </a>
+              </li>
               <li><Link href="/contact" className="hover:text-primary transition-colors">Sponsorship & Collaborations</Link></li>
               <li>
                 <a 
@@ -141,7 +129,7 @@ export function Footer() {
               </p>
               <div className="pt-2">
                 <span className="px-2 py-0.5 border border-white/20 rounded font-mono text-[10px] text-white/70">
-                  EST. 2018 &middot; 500+ ACTIVE MEMBERS
+                  EST. 2015 &middot; 50+ ACTIVE MEMBERS &middot; 200+ ALUMNI
                 </span>
               </div>
             </div>

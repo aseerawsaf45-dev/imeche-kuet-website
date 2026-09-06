@@ -6,6 +6,10 @@ import { chapterInfo } from "@/data/mock";
 
 export default function ContactPage() {
   const [submitted, setSubmitted] = useState(false);
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [category, setCategory] = useState("Industry Sponsorship & Partnerships");
+  const [message, setMessage] = useState("");
 
   return (
     <div className="min-h-screen pt-32 pb-24 bg-background text-foreground">
@@ -51,21 +55,21 @@ export default function ContactPage() {
               </ul>
             </div>
 
-            {/* Corporate Liaison Contacts */}
+            {/* Direct Chair Contact */}
             <div className="p-8 border border-secondary/25 bg-[#181818] rounded-lg reticle-corner text-white shadow-lg">
-              <h2 className="font-display text-2xl mb-4 text-white">Corporate & PR Coordinators</h2>
+              <h2 className="font-display text-2xl mb-4 text-white">Direct Chapter Contact</h2>
               <p className="text-sm text-neutral mb-6">
-                For corporate event partnerships, factory tours, or placement inquiries, reach out to our team leads:
+                For corporate event partnerships, factory tours, placement inquiries, or official chapter representation, reach out directly to the Chair:
               </p>
               <div className="space-y-4">
                 {chapterInfo.contacts.map((c) => (
-                  <div key={c.name} className="p-4 bg-[#202020] border border-white/10 rounded flex flex-col sm:flex-row sm:items-center justify-between gap-2 text-white">
+                  <div key={c.name} className="p-5 bg-[#202020] border border-white/10 rounded-lg flex flex-col sm:flex-row sm:items-center justify-between gap-3 text-white">
                     <div>
-                      <h4 className="font-medium text-white">{c.name}</h4>
-                      <p className="text-xs text-neutral">{c.role}</p>
+                      <h4 className="font-medium text-white text-lg">{c.name}</h4>
+                      <p className="text-xs text-primary font-mono uppercase tracking-wider">{c.role}</p>
                     </div>
                     <div className="text-xs font-mono space-y-1 sm:text-right">
-                      <p className="text-neutral">{c.phone}</p>
+                      <p className="text-white font-medium">{c.phone}</p>
                       <a href={`mailto:${c.email}`} className="text-primary hover:underline block">
                         {c.email}
                       </a>
@@ -102,29 +106,71 @@ export default function ContactPage() {
           {/* Right Column: Contact Message Form */}
           <div className="lg:col-span-6 bg-[#151515] text-white p-8 md:p-12 rounded-xl border border-white/10 shadow-2xl flex flex-col justify-between engineering-card bg-cad-grid">
             <div>
-              <span className="text-xs font-mono uppercase tracking-widest text-primary font-semibold block mb-2">
-                Inquiry Dispatch
-              </span>
-              <h2 className="font-display text-3xl md:text-4xl mb-4">Send a Direct Message</h2>
-              <p className="text-neutral text-sm mb-8 leading-relaxed">
-                Whether you represent an industrial partner, an engineering speaker, or an alumnus, get in touch with our executive committee.
+              <div className="flex flex-wrap items-center justify-between gap-2 mb-2">
+                <span className="text-xs font-mono uppercase tracking-widest text-primary font-semibold block">
+                  Inquiry Dispatch // Chair Secretariat
+                </span>
+                <span className="text-[11px] font-mono text-emerald-400 bg-emerald-500/10 border border-emerald-500/30 px-2 py-0.5 rounded">
+                  Destination: Chair's Inbox
+                </span>
+              </div>
+              <h2 className="font-display text-3xl md:text-4xl mb-2">Send a Direct Message</h2>
+              <p className="text-neutral text-sm mb-6 leading-relaxed">
+                Directly addressed to <strong className="text-white">Tahsin Hossain (Chair)</strong> at <a href="mailto:tahsin.kuetme@gmail.com" className="text-primary hover:underline font-mono">tahsin.kuetme@gmail.com</a>.
               </p>
 
               {submitted ? (
-                <div className="p-8 bg-emerald-950/40 border border-emerald-500/40 rounded-lg text-center space-y-3">
-                  <CheckCircle2 size={40} className="text-emerald-400 mx-auto" />
-                  <h3 className="font-display text-2xl text-white">Message Transmitted</h3>
-                  <p className="text-sm text-neutral max-w-md mx-auto">
-                    Thank you for contacting IMechE KUET. A member of our executive committee will follow up with you promptly.
+                <div className="p-8 bg-emerald-950/40 border border-emerald-500/40 rounded-xl text-center space-y-4">
+                  <CheckCircle2 size={44} className="text-emerald-400 mx-auto" />
+                  <h3 className="font-display text-2xl text-white">Dispatched to Chair's Email</h3>
+                  <p className="text-sm text-neutral max-w-md mx-auto leading-relaxed">
+                    Your transmission has been formatted and routed to <strong className="text-white">tahsin.kuetme@gmail.com</strong> (Tahsin Hossain, Chair, IMechE KUET).
                   </p>
+                  
+                  <div className="pt-2 flex flex-col sm:flex-row items-center justify-center gap-3">
+                    <a
+                      href={`https://mail.google.com/mail/?view=cm&fs=1&to=tahsin.kuetme@gmail.com&su=${encodeURIComponent(`[IMechE KUET] ${category} - ${name}`)}&body=${encodeURIComponent(`Sender Name: ${name}\nSender Email: ${email}\nCategory: ${category}\n\nMessage:\n${message}\n\n---\nDispatched via IMechE KUET Portal`)}`}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="w-full sm:w-auto px-5 py-3 rounded-lg bg-primary hover:bg-[#a60d26] text-white font-mono text-xs uppercase tracking-wider font-semibold flex items-center justify-center gap-2 transition-all shadow-lg shadow-primary/30"
+                    >
+                      <span>Open in Gmail</span>
+                      <ExternalLink size={14} />
+                    </a>
+                    <a
+                      href={`mailto:tahsin.kuetme@gmail.com?subject=${encodeURIComponent(`[IMechE KUET] ${category} - ${name}`)}&body=${encodeURIComponent(`Sender Name: ${name}\nSender Email: ${email}\nCategory: ${category}\n\nMessage:\n${message}\n\n---\nDispatched via IMechE KUET Portal`)}`}
+                      className="w-full sm:w-auto px-5 py-3 rounded-lg bg-white/10 hover:bg-white/20 text-white font-mono text-xs uppercase tracking-wider font-semibold flex items-center justify-center gap-2 transition-all border border-white/15"
+                    >
+                      <Mail size={14} />
+                      <span>Default Mail Client</span>
+                    </a>
+                  </div>
+
+                  <button
+                    onClick={() => {
+                      setSubmitted(false);
+                      setName("");
+                      setEmail("");
+                      setMessage("");
+                    }}
+                    className="text-xs font-mono text-neutral hover:text-white underline pt-4 block mx-auto transition-colors"
+                  >
+                    Send another inquiry
+                  </button>
                 </div>
               ) : (
                 <form 
                   onSubmit={(e) => {
                     e.preventDefault();
+                    const emailSubject = encodeURIComponent(`[IMechE KUET] ${category} - ${name}`);
+                    const emailBody = encodeURIComponent(
+                      `Sender Name: ${name}\nSender Email: ${email}\nInquiry Category: ${category}\n\nMessage:\n${message}\n\n---\nTransmitted via IMechE KUET Official Website`
+                    );
+                    const mailtoUrl = `mailto:tahsin.kuetme@gmail.com?subject=${emailSubject}&body=${emailBody}`;
+                    window.location.href = mailtoUrl;
                     setSubmitted(true);
                   }} 
-                  className="space-y-5 text-sm"
+                  className="space-y-4 text-sm"
                 >
                   <div>
                     <label className="block text-xs font-mono uppercase tracking-widest text-neutral mb-1.5" htmlFor="name">
@@ -134,6 +180,8 @@ export default function ContactPage() {
                       required
                       type="text"
                       id="name"
+                      value={name}
+                      onChange={(e) => setName(e.target.value)}
                       className="w-full bg-[#222] border border-white/15 px-4 py-3 rounded text-white focus:outline-none focus:border-primary transition-colors"
                       placeholder="e.g. Engr. Tanvir Rahman"
                     />
@@ -141,12 +189,14 @@ export default function ContactPage() {
 
                   <div>
                     <label className="block text-xs font-mono uppercase tracking-widest text-neutral mb-1.5" htmlFor="email">
-                      Email Address
+                      Your Email Address
                     </label>
                     <input
                       required
                       type="email"
                       id="email"
+                      value={email}
+                      onChange={(e) => setEmail(e.target.value)}
                       className="w-full bg-[#222] border border-white/15 px-4 py-3 rounded text-white focus:outline-none focus:border-primary transition-colors"
                       placeholder="your.email@company.com"
                     />
@@ -158,11 +208,14 @@ export default function ContactPage() {
                     </label>
                     <select
                       id="subject"
+                      value={category}
+                      onChange={(e) => setCategory(e.target.value)}
                       className="w-full bg-[#222] border border-white/15 px-4 py-3 rounded text-white focus:outline-none focus:border-primary transition-colors"
                     >
                       <option>Industry Sponsorship & Partnerships</option>
                       <option>Technical Seminar / Keynote Proposal</option>
                       <option>Student Recruitment & Internship Opportunity</option>
+                      <option>Competition Inquiry & Mentorship</option>
                       <option>General Chapter Inquiries</option>
                     </select>
                   </div>
@@ -175,23 +228,32 @@ export default function ContactPage() {
                       required
                       id="message"
                       rows={4}
+                      value={message}
+                      onChange={(e) => setMessage(e.target.value)}
                       className="w-full bg-[#222] border border-white/15 px-4 py-3 rounded text-white focus:outline-none focus:border-primary transition-colors resize-none"
                       placeholder="Outline your proposal or question..."
                     />
                   </div>
 
-                  <button
-                    type="submit"
-                    className="w-full py-4 bg-primary text-white font-medium hover:bg-primary/90 transition-all uppercase tracking-widest text-xs rounded shadow-lg shadow-primary/30 mt-2"
-                  >
-                    Transmit Inquiry
-                  </button>
+                  <div className="pt-2">
+                    <button
+                      type="submit"
+                      className="w-full py-4 bg-primary text-white font-medium hover:bg-[#a60d26] transition-all uppercase tracking-widest text-xs rounded shadow-lg shadow-primary/30 flex items-center justify-center gap-2 font-mono"
+                    >
+                      <Mail size={16} />
+                      <span>Transmit Directly to Chair (tahsin.kuetme@gmail.com)</span>
+                    </button>
+                    <span className="text-[11px] font-mono text-neutral/70 block text-center mt-2">
+                      Routing target: Tahsin Hossain (Chair, IMechE KUET)
+                    </span>
+                  </div>
                 </form>
               )}
             </div>
 
-            <div className="pt-8 mt-8 border-t border-white/10 text-xs font-mono text-neutral">
-              SYS.ID: KUET-IMechE-2026 &middot; RESPONSE TIME: &le; 24 HOURS
+            <div className="pt-8 mt-8 border-t border-white/10 text-xs font-mono text-neutral flex items-center justify-between">
+              <span>SYS.ID: KUET-IMechE-2026</span>
+              <span className="text-primary font-semibold">RECIPIENT: CHAIR</span>
             </div>
           </div>
         </div>

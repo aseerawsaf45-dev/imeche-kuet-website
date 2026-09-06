@@ -70,6 +70,12 @@ export default function TeamPage() {
       code: "MED-OFF",
       desc: "Leading photographic documentation, cinematography, and digital visual assets across official chapter channels.",
       members: team.filter(m => m.position === "Media Officer")
+    },
+    {
+      title: "Policy Analysts",
+      code: "POL-ANL",
+      desc: "Formulating chapter bylaws, institutional strategies, event governance protocols, and operational compliance.",
+      members: team.filter(m => m.position === "Policy Analyst")
     }
   ];
 

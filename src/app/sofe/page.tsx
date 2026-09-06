@@ -19,7 +19,9 @@ import {
   Users,
   Timer,
   Mail,
-  MessageSquare
+  MessageSquare,
+  ExternalLink,
+  Download
 } from "lucide-react";
 import { EngineeringDivider } from "@/components/ui/EngineeringDivider";
 
@@ -30,7 +32,7 @@ export default function Sofe2026Page() {
     {
       step: "01",
       level: "KUET Chapter Heats",
-      date: "OCTOBER 15, 2026",
+      date: "19 SEPT 2026 (TENTATIVE)",
       venue: "ME Seminar Hall, KUET",
       desc: "Preliminary presentations before a distinguished jury of KUET mechanical professors and chartered engineers. The top 2 finalists qualify for the national stage.",
       badge: "CURRENT STAGE"
@@ -38,7 +40,7 @@ export default function Sofe2026Page() {
     {
       step: "02",
       level: "Bangladesh National Finals",
-      date: "NOVEMBER 2026",
+      date: "TBA",
       venue: "Dhaka, Bangladesh",
       desc: "Heats champions from student chapters across Bangladesh (KUET, BUET, RUET, CUET, IUT) compete for the national champion title and South Asia berth.",
       badge: "NATIONAL"
@@ -46,7 +48,7 @@ export default function Sofe2026Page() {
     {
       step: "03",
       level: "South Asia Regional (SAR) Finals",
-      date: "EARLY 2027",
+      date: "TBA",
       venue: "Rotational Host (South Asia)",
       desc: "Winners from Bangladesh, India, Pakistan, and Sri Lanka contend for the continental title and an all-expenses-paid trip to London.",
       badge: "REGIONAL"
@@ -54,33 +56,75 @@ export default function Sofe2026Page() {
     {
       step: "04",
       level: "Global London Finals",
-      date: "MID 2027",
+      date: "TBA",
       venue: "IMechE HQ, One Birdcage Walk, London, UK",
       desc: "The world's top 7 regional champions deliver their keynote before the global IMechE Trustee Board and international industry leaders.",
       badge: "WORLD FINALS"
     }
   ];
 
-  const rubrics = [
+  const officialRubricPdfUrl = "https://www.imeche.org/docs/default-source/1-oscar/Get-involved/young-members/sofe/apr-24/sofe-judges-marking-scheme-2024.pdf?sfvrsn=2";
+
+  const presentationRubric = [
     {
-      category: "Structure & Logical Progression",
+      id: "01",
+      category: "Structure and Content of Presentation",
+      marks: "30 Marks",
       percentage: "30%",
-      desc: "Systematic problem statement, clear technical narrative, transition between ideas, and compelling conclusion."
+      subCriteria: [
+        { title: "Introduction & Understanding of Need", desc: "Does the contestant introduce the topic clearly and simply state the project purpose/objective? Does the entrant show a clear understanding of the need for the project?", points: "10" },
+        { title: "Logical Development of Work", desc: "Does the entrant clearly state and logically develop the detailed description of his/her work?", points: "10" },
+        { title: "Key Messages & Future Scope", desc: "Are key messages communicated effectively (including summary/findings)? Does the entrant explain how the work could be exploited or developed further?", points: "10" }
+      ]
     },
     {
-      category: "Visual Aids & Prototyping Demo",
-      percentage: "30%",
-      desc: "Effective presentation slides, CAD animations, functional engineering prototypes, or multimedia demonstrations."
+      id: "02",
+      category: "Quality of Preparation & Handling of Questions",
+      marks: "20 Marks",
+      percentage: "20%",
+      subCriteria: [
+        { title: "Presentation Planning & Rehearsal", desc: "How well planned, paced, and rehearsed was the verbal presentation?", points: "10" },
+        { title: "10-Minute Question Defense", desc: "How well does the entrant handle and defend the 10-minute question session from the judging panel?", points: "10" }
+      ]
     },
     {
-      category: "Verbal Delivery & Audience Rapport",
-      percentage: "30%",
-      desc: "Enunciation, pace, confident body posture, eye contact, and making complex engineering concepts universally understandable."
+      id: "03",
+      category: "Effective Use of Presentation Aids",
+      marks: "15 Marks",
+      percentage: "15%",
+      subCriteria: [
+        { title: "Support to Oral Delivery", desc: "Is the supporting presentation material used effectively in support of the oral presentation rather than acting as a distraction?", points: "15" }
+      ]
     },
     {
-      category: "Technical Defense (10-Min Q&A)",
+      id: "04",
+      category: "Quality of Presentation",
+      marks: "15 Marks",
+      percentage: "15%",
+      subCriteria: [
+        { title: "Clarity, Neatness & Working Order", desc: "Are slides, videos, simulations, physical models, or prototypes clear, neat, and in good working order?", points: "15" }
+      ]
+    },
+    {
+      id: "05",
+      category: "Presentation Style",
+      marks: "10 Marks",
       percentage: "10%",
-      desc: "Sound mechanical engineering principles demonstrated under spontaneous questioning from the academic panel."
+      subCriteria: [
+        { title: "Engaging Delivery & Poise", desc: "Does the competitor give an engaging presentation? (Quality of delivery, vocal modulation, eye contact, body language, and audience connection)", points: "10" }
+      ]
+    }
+  ];
+
+  const technicalRubric = [
+    {
+      id: "06",
+      category: "Complexity of Technical Content",
+      marks: "10 Marks",
+      percentage: "10%",
+      subCriteria: [
+        { title: "Technical Mechanical Rigor", desc: "Complexity, novelty, and interest of the technical mechanical engineering problem attempted.", points: "10" }
+      ]
     }
   ];
 
@@ -93,7 +137,7 @@ export default function Sofe2026Page() {
     {
       category: "Timeline",
       q: "What is the abstract submission deadline?",
-      a: "The abstract submission deadline is 13 September 2026 (11:59 PM BST). Competitors must submit their abstract before this cutoff. Faculty evaluation results and shortlisted speaker selections will be announced on 22 September 2026."
+      a: "The abstract submission deadline is 13 September 2026 (11:59 PM BST). Competitors must submit their 100-word engineering abstract before this cutoff. Faculty evaluation results and shortlisted speaker selections will follow."
     },
     {
       category: "Eligibility",
@@ -108,7 +152,7 @@ export default function Sofe2026Page() {
     {
       category: "Judging",
       q: "How will the presentations be scored?",
-      a: "In strict accordance with IMechE UK-SPEC assessment criteria: 90% of total points evaluate presentation excellence (30% structure & logic, 30% visual aids & demos, 30% verbal delivery & poise), and 10% evaluates technical soundness during the 10-minute Q&A."
+      a: "In strict accordance with the official IMechE SOfE 2024 Judges Marking Scheme: 90% of total marks evaluate Presentation Excellence (30% Structure & Content, 20% Preparation & Question Handling, 15% Effective Use of Aids, 15% Quality of Slides/Simulations/Models, 10% Presentation Style) and 10% evaluates Technical Content complexity. This ensures presentations across diverse mechanical fields compete on an equal footing."
     },
     {
       category: "Topics",
@@ -123,7 +167,7 @@ export default function Sofe2026Page() {
     {
       category: "Venue",
       q: "When and where will the KUET Heats take place?",
-      a: "The KUET Chapter Heats will be held live on Thursday, 15 October 2026, starting at 10:00 AM BST at the Mechanical Engineering Seminar Hall, Mechanical Engineering Complex, KUET."
+      a: "The KUET Chapter Heats are tentatively scheduled for 19 September 2026 at the Mechanical Engineering Seminar Hall, Mechanical Engineering Complex, KUET. Finalized timing details and itinerary are TBA."
     },
     {
       category: "Support",
@@ -200,9 +244,19 @@ export default function Sofe2026Page() {
               </a>
               <a 
                 href="#rubric"
-                className="px-6 py-4 bg-white/5 border border-white/15 text-neutral-200 hover:bg-white/10 hover:text-white transition-all font-mono text-xs uppercase tracking-widest rounded"
+                className="px-6 py-4 bg-white/5 border border-white/15 text-neutral-200 hover:bg-white/10 hover:text-white transition-all font-mono text-xs uppercase tracking-widest rounded flex items-center gap-2"
               >
                 Judging Criteria
+              </a>
+              <a 
+                href={officialRubricPdfUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="px-5 py-4 bg-white/5 border border-[#C8102E]/30 text-[#FF4D6D] hover:bg-[#C8102E]/10 transition-all font-mono text-xs uppercase tracking-widest rounded flex items-center gap-2 group"
+              >
+                <FileText size={15} />
+                <span>Marking Scheme (PDF)</span>
+                <ExternalLink size={12} className="group-hover:translate-x-0.5 transition-transform" />
               </a>
             </div>
           </div>
@@ -225,7 +279,7 @@ export default function Sofe2026Page() {
                   <Calendar className="text-[#C8102E] mt-1 shrink-0" size={18} />
                   <div>
                     <span className="text-xs font-mono uppercase text-neutral-400 block">Keynote & Presentation Date</span>
-                    <span className="text-white font-medium">Thursday, October 15, 2026</span>
+                    <span className="text-white font-medium">19 September 2026 (Tentative)</span>
                   </div>
                 </div>
 
@@ -233,7 +287,7 @@ export default function Sofe2026Page() {
                   <Clock className="text-[#C8102E] mt-1 shrink-0" size={18} />
                   <div>
                     <span className="text-xs font-mono uppercase text-neutral-400 block">Schedule & Time</span>
-                    <span className="text-white font-medium">10:00 AM &ndash; 04:00 PM BST</span>
+                    <span className="text-white font-medium">TBA</span>
                   </div>
                 </div>
 
@@ -249,7 +303,22 @@ export default function Sofe2026Page() {
                   <Timer className="text-[#C8102E] mt-1 shrink-0" size={18} />
                   <div>
                     <span className="text-xs font-mono uppercase text-neutral-400 block">Abstract Submission Deadline</span>
-                    <span className="text-amber-400 font-medium">September 13, 2026 &middot; 11:59 PM BST</span>
+                    <span className="text-amber-400 font-medium">13 September 2026 &middot; 11:59 PM BST</span>
+                  </div>
+                </div>
+
+                <div className="flex items-start gap-3">
+                  <FileText className="text-[#C8102E] mt-1 shrink-0" size={18} />
+                  <div>
+                    <span className="text-xs font-mono uppercase text-neutral-400 block">Official Assessment Scheme</span>
+                    <a 
+                      href={officialRubricPdfUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-white hover:text-[#FF4D6D] transition-colors font-medium inline-flex items-center gap-1.5"
+                    >
+                      Official 2024 Marking Scheme <ExternalLink size={12} />
+                    </a>
                   </div>
                 </div>
               </div>
@@ -314,50 +383,160 @@ export default function Sofe2026Page() {
         </div>
 
         {/* Caliper Divider */}
-        <EngineeringDivider label="OFFICIAL ASSESSMENT CRITERIA // UK-SPEC RUBRIC" />
+        <EngineeringDivider label="OFFICIAL ASSESSMENT CRITERIA // 2024 IMechE MARKING SCHEME" />
 
         {/* Judging Rubric Section */}
         <div id="rubric" className="my-28 scroll-mt-32">
-          <div className="bg-[#181818] border border-white/10 rounded-2xl p-8 md:p-14 shadow-2xl reticle-corner text-white bg-cad-grid">
-            <div className="max-w-3xl mb-12">
-              <div className="inline-flex items-center gap-2 px-3 py-1 bg-[#C8102E]/15 border border-[#C8102E]/30 rounded text-[#FF4D6D] text-xs font-mono tracking-widest uppercase font-semibold mb-4">
-                <Award size={14} />
-                90% Presentation &middot; 10% Technical Rigor
+          <div className="bg-[#181818] border border-white/10 rounded-2xl p-8 md:p-14 shadow-2xl reticle-corner text-white bg-cad-grid relative">
+            <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-8 mb-12 pb-8 border-b border-white/10">
+              <div className="max-w-2xl">
+                <div className="inline-flex items-center gap-2 px-3 py-1 bg-[#C8102E]/15 border border-[#C8102E]/30 rounded text-[#FF4D6D] text-xs font-mono tracking-widest uppercase font-semibold mb-4">
+                  <Award size={14} />
+                  Official 2024 IMechE Criteria &middot; 90% Presentation / 10% Technical
+                </div>
+                <h2 className="font-display text-3xl sm:text-4xl md:text-5xl text-white mb-4">
+                  Official SOfE Judges Marking Scheme
+                </h2>
+                <p className="text-neutral-300 text-sm md:text-base leading-relaxed">
+                  90% of total marks are given for presentation with only 10% for technical content. This ensures all presentations have the same chance of success across diverse mechanical fields, emphasizing how effectively engineering concepts are communicated.
+                </p>
               </div>
-              <h2 className="font-display text-3xl sm:text-4xl md:text-5xl text-white mb-4">
-                Official UK-SPEC Judging Rubric
-              </h2>
-              <p className="text-neutral-300 text-sm md:text-base leading-relaxed">
-                Unlike traditional academic symposiums, SOfE prioritizes verbal clarity, visual engagement, and communication authority. The primary goal is teaching mechanical engineers to express ideas clearly to non-specialists.
-              </p>
+
+              {/* Direct PDF Download / Link Action */}
+              <div className="shrink-0 flex flex-col sm:flex-row lg:flex-col gap-3">
+                <a
+                  href={officialRubricPdfUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="px-6 py-3.5 bg-[#C8102E] hover:bg-[#A00D24] text-white font-mono text-xs uppercase tracking-wider rounded flex items-center justify-center gap-2 shadow-lg shadow-[#C8102E]/25 transition-all group"
+                >
+                  <FileText size={16} />
+                  <span>Download Scheme (PDF)</span>
+                  <ExternalLink size={13} className="group-hover:translate-x-0.5 transition-transform" />
+                </a>
+                <span className="text-[11px] font-mono text-neutral-400 text-center">
+                  Official IMechE UK Ref: apr-24/2024
+                </span>
+              </div>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-              {rubrics.map((rubric, idx) => (
-                <div 
-                  key={idx}
-                  className="p-6 md:p-8 bg-[#202020] border border-white/10 rounded-xl reticle-corner hover:border-white/20 transition-all"
-                >
-                  <div className="flex items-center justify-between mb-4">
-                    <h3 className="font-display text-xl text-white">
-                      {rubric.category}
-                    </h3>
-                    <span className="font-mono text-2xl font-bold text-[#FF4D6D]">
-                      {rubric.percentage}
-                    </span>
-                  </div>
-                  <div className="w-full h-1.5 bg-black/40 rounded-full overflow-hidden mb-4">
-                    <div 
-                      className="h-full bg-[#C8102E] rounded-full" 
-                      style={{ width: rubric.percentage }}
-                    />
-                  </div>
-                  <p className="text-neutral-300 text-xs md:text-sm leading-relaxed">
-                    {rubric.desc}
-                  </p>
+            {/* PART 1: PRESENTATION (90 MARKS) */}
+            <div className="mb-12">
+              <div className="flex items-center justify-between mb-6 pb-2 border-b border-white/10">
+                <div className="flex items-center gap-3">
+                  <span className="px-2.5 py-0.5 rounded bg-[#C8102E]/20 border border-[#C8102E]/40 text-[#FF4D6D] font-mono text-xs font-bold uppercase">
+                    Part A
+                  </span>
+                  <h3 className="font-display text-2xl text-white">Presentation Evaluation</h3>
                 </div>
-              ))}
+                <span className="font-mono text-lg font-bold text-[#FF4D6D]">90 Marks (90%)</span>
+              </div>
+
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                {presentationRubric.map((item) => (
+                  <div 
+                    key={item.id}
+                    className="p-6 bg-[#202020] border border-white/10 rounded-xl reticle-corner hover:border-[#C8102E]/40 transition-all flex flex-col justify-between"
+                  >
+                    <div>
+                      <div className="flex items-center justify-between mb-3">
+                        <span className="text-xs font-mono text-neutral-400">CRITERION {item.id}</span>
+                        <span className="font-mono text-base font-bold text-white bg-white/5 px-2.5 py-0.5 rounded border border-white/10">
+                          {item.marks}
+                        </span>
+                      </div>
+                      <h4 className="font-display text-lg text-white mb-4">
+                        {item.category}
+                      </h4>
+                      <div className="space-y-3 pt-3 border-t border-white/10">
+                        {item.subCriteria.map((sub, sIdx) => (
+                          <div key={sIdx} className="text-xs">
+                            <div className="flex items-center justify-between text-neutral-200 font-medium mb-1">
+                              <span className="text-white font-semibold flex items-center gap-1.5">
+                                <span className="w-1.5 h-1.5 rounded-full bg-[#C8102E]" />
+                                {sub.title}
+                              </span>
+                              <span className="font-mono text-[#FF4D6D]">{sub.points} pts</span>
+                            </div>
+                            <p className="text-neutral-400 leading-relaxed text-[11px] pl-3">
+                              {sub.desc}
+                            </p>
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+                  </div>
+                ))}
+              </div>
             </div>
+
+            {/* PART 2: TECHNICAL CONTENT (10 MARKS) */}
+            <div>
+              <div className="flex items-center justify-between mb-6 pb-2 border-b border-white/10">
+                <div className="flex items-center gap-3">
+                  <span className="px-2.5 py-0.5 rounded bg-amber-500/20 border border-amber-500/40 text-amber-300 font-mono text-xs font-bold uppercase">
+                    Part B
+                  </span>
+                  <h3 className="font-display text-2xl text-white">Technical Content Evaluation</h3>
+                </div>
+                <span className="font-mono text-lg font-bold text-amber-400">10 Marks (10%)</span>
+              </div>
+
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                {technicalRubric.map((item) => (
+                  <div 
+                    key={item.id}
+                    className="p-6 bg-[#202020] border border-white/10 rounded-xl reticle-corner hover:border-amber-400/40 transition-all flex flex-col justify-between"
+                  >
+                    <div>
+                      <div className="flex items-center justify-between mb-3">
+                        <span className="text-xs font-mono text-neutral-400">CRITERION {item.id}</span>
+                        <span className="font-mono text-base font-bold text-amber-400 bg-amber-400/10 px-2.5 py-0.5 rounded border border-amber-400/20">
+                          {item.marks}
+                        </span>
+                      </div>
+                      <h4 className="font-display text-lg text-white mb-4">
+                        {item.category}
+                      </h4>
+                      <div className="space-y-3 pt-3 border-t border-white/10">
+                        {item.subCriteria.map((sub, sIdx) => (
+                          <div key={sIdx} className="text-xs">
+                            <div className="flex items-center justify-between text-neutral-200 font-medium mb-1">
+                              <span className="text-white font-semibold flex items-center gap-1.5">
+                                <span className="w-1.5 h-1.5 rounded-full bg-amber-400" />
+                                {sub.title}
+                              </span>
+                              <span className="font-mono text-amber-400">{sub.points} pts</span>
+                            </div>
+                            <p className="text-neutral-400 leading-relaxed text-[11px] pl-3">
+                              {sub.desc}
+                            </p>
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+                  </div>
+                ))}
+
+                {/* Important Assessment Notice Card */}
+                <div className="p-6 bg-[#1a1a1a] border border-white/10 rounded-xl reticle-corner flex flex-col justify-between">
+                  <div>
+                    <span className="text-xs font-mono uppercase tracking-widest text-[#FF4D6D] block mb-2 font-semibold">
+                      OFFICIAL IMechE REGULATIONS
+                    </span>
+                    <h4 className="font-display text-lg text-white mb-2">Equal Opportunity Rationale</h4>
+                    <p className="text-xs text-neutral-300 leading-relaxed">
+                      All presentations must contain mechanical engineering content in its broadest sense (e.g. purpose, research, design, feasibility, practicality). The 90/10 weighting guarantees that participants from undergraduate freshmen to graduating researchers compete purely on communication mastery.
+                    </p>
+                  </div>
+                  <div className="pt-4 mt-4 border-t border-white/10 flex items-center justify-between text-[11px] font-mono text-neutral-400">
+                    <span>Judges&apos; Decision Final</span>
+                    <span className="text-white/60">Total Score: 100</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
           </div>
         </div>
 

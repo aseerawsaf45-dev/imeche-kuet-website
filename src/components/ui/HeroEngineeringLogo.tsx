@@ -276,13 +276,7 @@ export default function HeroEngineeringLogo({ className = "" }: { className?: st
         </g>
       </svg>
 
-      {/* Floating HUD Telemetry Chips (Desktop) */}
-      <div className="hidden sm:flex absolute -top-4 -left-4 px-3 py-1.5 bg-[#151515]/90 border border-white/10 rounded backdrop-blur-md items-center gap-2 shadow-lg">
-        <span className="w-2 h-2 rounded-full bg-primary animate-pulse" />
-        <span className="font-mono text-[10px] text-white/90 tracking-widest uppercase">
-          DYNAMICS: ACTIVE // 60 RPM
-        </span>
-      </div>
+
 
       <div className="hidden sm:flex absolute -bottom-4 -right-4 px-3 py-1.5 bg-[#151515]/90 border border-primary/30 rounded backdrop-blur-md items-center gap-2 shadow-lg">
         <span className="font-mono text-[10px] text-neutral tracking-wider">

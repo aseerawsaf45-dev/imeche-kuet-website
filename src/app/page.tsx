@@ -1,13 +1,19 @@
 "use client";
 
+import { useState } from "react";
 import Link from "next/link";
-import { ArrowRight, ChevronRight, Users, BookOpen, Compass, Briefcase, Sparkles } from "lucide-react";
+import { ArrowRight, ChevronRight, Users, BookOpen, Compass, Briefcase, Sparkles, Mail, MapPin, Building2, CheckCircle2, ExternalLink } from "lucide-react";
 import { ScrollReveal, StaggerContainer, StaggerItem } from "@/components/ui/ScrollReveal";
 import HeroEngineeringLogo from "@/components/ui/HeroEngineeringLogo";
 import { EngineeringDivider } from "@/components/ui/EngineeringDivider";
-import { events } from "@/data/mock";
+import { events, chapterInfo } from "@/data/mock";
 
 export default function Home() {
+  const [formSubmitted, setFormSubmitted] = useState(false);
+  const [homeName, setHomeName] = useState("");
+  const [homeEmail, setHomeEmail] = useState("");
+  const [homeCategory, setHomeCategory] = useState("Corporate Sponsorship & Collaboration");
+  const [homeMessage, setHomeMessage] = useState("");
   const featuredEvents = events.slice(0, 4);
 
   return (
@@ -49,7 +55,7 @@ export default function Home() {
             <StaggerItem>
               <div className="max-w-xl mb-10">
                 <p className="text-base sm:text-lg md:text-xl text-light-gray/80 font-sans leading-relaxed">
-                  Based at the Department of Mechanical Engineering, Khulna University of Engineering & Technology. Empowering 500+ student engineers through technical excellence, CAD innovation, robotics, and global career pathways.
+                  Based at the Department of Mechanical Engineering, Khulna University of Engineering & Technology. Empowering student engineers through technical excellence, CAD innovation, robotics, and global career pathways.
                 </p>
               </div>
             </StaggerItem>
@@ -60,9 +66,14 @@ export default function Home() {
                   Explore Our Chapter 
                   <ArrowRight size={18} className="transform group-hover:translate-x-1 transition-transform" />
                 </Link>
-                <Link href="/join" className="inline-flex items-center justify-center gap-2 bg-transparent border border-white/20 text-white px-8 py-4 font-medium hover:bg-white/5 transition-all">
+                <a 
+                  href="https://docs.google.com/forms/d/e/1FAIpQLSc_2IW3r4Puhv0D0273WoyeV53JMxprDV3IGy5WsXbDErFXPQ/viewform"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center justify-center gap-2 bg-transparent border border-white/20 text-white px-8 py-4 font-medium hover:bg-white/5 transition-all"
+                >
                   Join the Community
-                </Link>
+                </a>
               </div>
             </StaggerItem>
           </StaggerContainer>
@@ -111,16 +122,16 @@ export default function Home() {
       <section className="py-24 bg-[#101010] text-white bg-cad-grid relative overflow-hidden">
         <StaggerContainer className="container mx-auto px-6 md:px-12 lg:px-20 grid grid-cols-2 md:grid-cols-4 gap-12 border-t border-white/10 pt-16 relative z-10">
           <StaggerItem className="flex flex-col border-l border-primary/60 pl-6">
-            <span className="font-display text-5xl md:text-7xl mb-2 text-white">500+</span>
+            <span className="font-display text-5xl md:text-7xl mb-2 text-white">2015</span>
+            <span className="text-xs font-mono tracking-widest uppercase text-neutral-gray">First Student Chapter Formed</span>
+          </StaggerItem>
+          <StaggerItem className="flex flex-col border-l border-primary/60 pl-6">
+            <span className="font-display text-5xl md:text-7xl mb-2 text-white">200+</span>
+            <span className="text-xs font-mono tracking-widest uppercase text-neutral-gray">Alumni</span>
+          </StaggerItem>
+          <StaggerItem className="flex flex-col border-l border-primary/60 pl-6">
+            <span className="font-display text-5xl md:text-7xl mb-2 text-white">50+</span>
             <span className="text-xs font-mono tracking-widest uppercase text-neutral-gray">Active Members</span>
-          </StaggerItem>
-          <StaggerItem className="flex flex-col border-l border-primary/60 pl-6">
-            <span className="font-display text-5xl md:text-7xl mb-2 text-white">1967</span>
-            <span className="text-xs font-mono tracking-widest uppercase text-neutral-gray">ME Dept Heritage</span>
-          </StaggerItem>
-          <StaggerItem className="flex flex-col border-l border-primary/60 pl-6">
-            <span className="font-display text-5xl md:text-7xl mb-2 text-white">20+</span>
-            <span className="text-xs font-mono tracking-widest uppercase text-neutral-gray">Annual Initiatives</span>
           </StaggerItem>
           <StaggerItem className="flex flex-col border-l border-primary/60 pl-6">
             <span className="font-display text-5xl md:text-7xl mb-2 text-white">120K+</span>
@@ -223,57 +234,229 @@ export default function Home() {
       </section>
 
       {/* Technical Calibrated Divider */}
-      <EngineeringDivider label="EDITORIAL 05 // KUET MECHANICAL DIGEST" />
+      <EngineeringDivider label="COMMUNICATION 05 // DIRECT TRANSMISSION & SECRETARIAT" />
 
-      {/* 6. NEWSLETTER / TECHNICAL SPOTLIGHT */}
-      <section className="py-24 px-6 md:px-12 lg:px-20 bg-[#151515] text-white border-t border-white/10 bg-cad-grid relative overflow-hidden">
-        <div className="container mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-          <div className="lg:col-span-7">
-            <span className="text-xs font-mono tracking-widest uppercase text-primary font-semibold block mb-3">
-              KUET Student Publication
-            </span>
-            <h2 className="font-display text-3xl sm:text-5xl mb-6 text-white">
-              Where KUET Engineers Get Their News.
-            </h2>
-            <p className="text-neutral text-lg leading-relaxed mb-6 max-w-xl">
-              Curated by mechanical engineering students at KUET for a crisp weekly read. Covering CAD modeling tips, lab discoveries, thermal plant insights, and career updates from top alumni.
-            </p>
-            <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 pt-4 border-t border-white/10">
+      {/* 6. CONTACT US SECTION */}
+      <section id="contact" className="py-28 px-6 md:px-12 lg:px-20 bg-[#151515] text-white border-t border-white/10 bg-cad-grid relative overflow-hidden">
+        <div className="container mx-auto">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
+            
+            {/* Left Column: Direct Info & Secretariat */}
+            <div className="lg:col-span-6 space-y-8">
               <div>
-                <h4 className="font-bold text-white text-sm uppercase tracking-wider mb-1 font-mono">🔥 Tech Insights</h4>
-                <p className="text-xs text-neutral">SolidWorks, ANSYS simulation, and robotics design blueprints.</p>
+                <div className="inline-flex items-center gap-2 px-3 py-1 bg-[#C8102E]/10 border border-[#C8102E]/30 rounded text-xs font-mono tracking-widest uppercase text-[#FF4D6D] font-semibold mb-4">
+                  <Building2 size={14} />
+                  Communication Hub &middot; KUET Chapter
+                </div>
+                <h2 className="font-display text-4xl sm:text-5xl md:text-6xl text-white mb-4">
+                  Contact Us
+                </h2>
+                <p className="text-neutral text-base md:text-lg leading-relaxed">
+                  Have inquiries regarding corporate sponsorships, industrial excursions, technical seminars, or student chapter activities? Connect directly with our executive committee.
+                </p>
               </div>
-              <div>
-                <h4 className="font-bold text-white text-sm uppercase tracking-wider mb-1 font-mono">🎫 Exclusive Events</h4>
-                <p className="text-xs text-neutral">Never miss industrial excursions, seminars, and CAD challenges.</p>
+
+              {/* Physical Secretariat Card */}
+              <div className="p-6 sm:p-8 bg-[#1a1a1a] border border-white/10 rounded-2xl reticle-corner shadow-xl">
+                <h3 className="font-display text-xl text-white mb-4 flex items-center gap-2">
+                  <MapPin className="text-primary shrink-0" size={20} />
+                  Chapter Secretariat
+                </h3>
+                <p className="text-sm text-neutral leading-relaxed mb-6">
+                  Department of Mechanical Engineering<br />
+                  Mechanical Engineering Complex, KUET<br />
+                  Khulna-9203, Bangladesh
+                </p>
+                <div className="pt-4 border-t border-white/10 flex flex-wrap items-center justify-between gap-3 text-xs font-mono">
+                  <a href={`mailto:${chapterInfo.email}`} className="text-white hover:text-primary transition-colors flex items-center gap-2">
+                    <Mail size={14} className="text-primary" />
+                    {chapterInfo.email}
+                  </a>
+                  <span className="text-neutral/70">22.8998° N, 89.5024° E</span>
+                </div>
               </div>
-              <div>
-                <h4 className="font-bold text-white text-sm uppercase tracking-wider mb-1 font-mono">🏛️ Around Campus</h4>
-                <p className="text-xs text-neutral">Stay updated with research projects and mechanical lab news.</p>
+
+              {/* Direct Leadership Contact */}
+              <div className="space-y-3">
+                <span className="text-xs font-mono uppercase tracking-widest text-neutral block">
+                  Chapter Leadership
+                </span>
+                <div className="grid grid-cols-1 gap-3">
+                  {chapterInfo.contacts.map((c) => (
+                    <div key={c.name} className="p-5 bg-[#1a1a1a] border border-white/10 rounded-xl text-xs flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+                      <div>
+                        <p className="font-semibold text-white text-base">{c.name}</p>
+                        <p className="text-primary text-xs font-mono uppercase mt-0.5">{c.role}</p>
+                      </div>
+                      <div className="text-xs font-mono space-y-1 sm:text-right">
+                        <p className="text-white font-medium">{c.phone}</p>
+                        <a href={`mailto:${c.email}`} className="text-primary hover:underline block text-xs">
+                          {c.email}
+                        </a>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+              {/* Quick External Actions */}
+              <div className="flex flex-wrap items-center gap-3 pt-2">
+                <Link
+                  href="/contact"
+                  className="px-6 py-3 bg-[#C8102E] text-white hover:bg-[#A00D24] text-xs font-mono uppercase tracking-wider rounded transition-colors inline-flex items-center gap-2 shadow-lg shadow-[#C8102E]/25"
+                >
+                  Full Directory & Partnerships <ArrowRight size={14} />
+                </Link>
+                <a
+                  href={chapterInfo.socials.facebook}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="px-4 py-3 bg-white/5 border border-white/15 text-neutral-300 hover:text-white text-xs font-mono uppercase tracking-wider rounded transition-colors"
+                >
+                  Facebook
+                </a>
+                <a
+                  href={chapterInfo.socials.linkedin}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="px-4 py-3 bg-white/5 border border-white/15 text-neutral-300 hover:text-white text-xs font-mono uppercase tracking-wider rounded transition-colors"
+                >
+                  LinkedIn
+                </a>
               </div>
             </div>
-          </div>
-          <div className="lg:col-span-5 bg-[#1a1a1a] p-8 sm:p-10 rounded-xl text-white shadow-2xl border border-white/15 engineering-card">
-            <h3 className="font-display text-2xl mb-2 text-white">Subscribe to the Digest</h3>
-            <p className="text-sm text-neutral mb-6">Join hundreds of KUET engineers advancing their technical career.</p>
-            <form onSubmit={(e) => e.preventDefault()} className="space-y-4">
-              <input
-                type="text"
-                placeholder="Full Name (e.g. Tanvir Hasan)"
-                className="w-full px-4 py-3 bg-[#242424] border border-white/10 text-white rounded text-sm focus:outline-none focus:border-primary transition-colors"
-              />
-              <input
-                type="email"
-                placeholder="Student Email (e.g. roll@stud.kuet.ac.bd)"
-                className="w-full px-4 py-3 bg-[#242424] border border-white/10 text-white rounded text-sm focus:outline-none focus:border-primary transition-colors"
-              />
-              <button
-                type="submit"
-                className="w-full py-3.5 bg-primary text-white font-medium hover:bg-primary/90 transition-all uppercase tracking-widest text-xs rounded shadow-lg shadow-primary/25"
-              >
-                Join Newsletter
-              </button>
-            </form>
+
+            {/* Right Column: Interactive Quick Transmission Form */}
+            <div className="lg:col-span-6 bg-[#1a1a1a] p-8 sm:p-12 rounded-2xl border border-white/15 shadow-2xl reticle-corner engineering-card">
+              <div className="flex flex-wrap items-center justify-between gap-2 mb-2">
+                <span className="text-xs font-mono uppercase tracking-widest text-primary font-semibold block">
+                  Inquiry Dispatch // Direct Route
+                </span>
+                <span className="text-[11px] font-mono text-emerald-400 bg-emerald-500/10 border border-emerald-500/30 px-2 py-0.5 rounded">
+                  Target: Chair's Inbox
+                </span>
+              </div>
+              <h3 className="font-display text-2xl sm:text-3xl text-white mb-2">Send a Direct Message</h3>
+              <p className="text-sm text-neutral mb-6 leading-relaxed">
+                Transmitted directly to <strong className="text-white">Tahsin Hossain (Chair, IMechE KUET)</strong> at <a href="mailto:tahsin.kuetme@gmail.com" className="text-primary hover:underline font-mono">tahsin.kuetme@gmail.com</a>.
+              </p>
+
+              {formSubmitted ? (
+                <div className="py-8 text-center space-y-4 bg-emerald-950/30 border border-emerald-500/30 rounded-xl p-8">
+                  <CheckCircle2 size={44} className="text-emerald-400 mx-auto" />
+                  <h4 className="font-display text-2xl text-white">Dispatched to Chair's Email</h4>
+                  <p className="text-xs text-neutral max-w-sm mx-auto leading-relaxed">
+                    Your inquiry has been addressed to <strong className="text-white">tahsin.kuetme@gmail.com</strong> (Tahsin Hossain, Chair).
+                  </p>
+                  <div className="pt-2 flex flex-col sm:flex-row items-center justify-center gap-3">
+                    <a
+                      href={`https://mail.google.com/mail/?view=cm&fs=1&to=tahsin.kuetme@gmail.com&su=${encodeURIComponent(`[IMechE KUET] ${homeCategory} - ${homeName}`)}&body=${encodeURIComponent(`Sender Name: ${homeName}\nSender Email: ${homeEmail}\nCategory: ${homeCategory}\n\nMessage:\n${homeMessage}\n\n---\nDispatched via IMechE KUET Portal`)}`}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="w-full sm:w-auto px-5 py-2.5 rounded-lg bg-primary hover:bg-[#a60d26] text-white font-mono text-xs uppercase tracking-wider font-semibold flex items-center justify-center gap-2 transition-all shadow-lg shadow-primary/30"
+                    >
+                      <span>Open in Gmail</span>
+                      <ExternalLink size={13} />
+                    </a>
+                    <a
+                      href={`mailto:tahsin.kuetme@gmail.com?subject=${encodeURIComponent(`[IMechE KUET] ${homeCategory} - ${homeName}`)}&body=${encodeURIComponent(`Sender Name: ${homeName}\nSender Email: ${homeEmail}\nCategory: ${homeCategory}\n\nMessage:\n${homeMessage}\n\n---\nDispatched via IMechE KUET Portal`)}`}
+                      className="w-full sm:w-auto px-5 py-2.5 rounded-lg bg-white/10 hover:bg-white/20 text-white font-mono text-xs uppercase tracking-wider font-semibold flex items-center justify-center gap-2 transition-all border border-white/15"
+                    >
+                      <Mail size={13} />
+                      <span>Mail Client</span>
+                    </a>
+                  </div>
+                  <button
+                    onClick={() => {
+                      setFormSubmitted(false);
+                      setHomeName("");
+                      setHomeEmail("");
+                      setHomeMessage("");
+                    }}
+                    className="text-xs font-mono text-neutral hover:text-white underline pt-3 block mx-auto transition-colors"
+                  >
+                    Send another message
+                  </button>
+                </div>
+              ) : (
+                <form 
+                  onSubmit={(e) => {
+                    e.preventDefault();
+                    const emailSubject = encodeURIComponent(`[IMechE KUET] ${homeCategory} - ${homeName}`);
+                    const emailBody = encodeURIComponent(
+                      `Sender Name: ${homeName}\nSender Email: ${homeEmail}\nCategory: ${homeCategory}\n\nMessage:\n${homeMessage}\n\n---\nTransmitted via IMechE KUET Website Homepage`
+                    );
+                    const mailtoUrl = `mailto:tahsin.kuetme@gmail.com?subject=${emailSubject}&body=${emailBody}`;
+                    window.location.href = mailtoUrl;
+                    setFormSubmitted(true);
+                  }} 
+                  className="space-y-4"
+                >
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    <div>
+                      <label className="block text-xs font-mono uppercase text-neutral mb-1.5">Full Name</label>
+                      <input
+                        required
+                        type="text"
+                        value={homeName}
+                        onChange={(e) => setHomeName(e.target.value)}
+                        placeholder="e.g. Engr. Tanvir Hasan"
+                        className="w-full px-4 py-3 bg-[#242424] border border-white/10 text-white rounded text-sm focus:outline-none focus:border-primary transition-colors"
+                      />
+                    </div>
+                    <div>
+                      <label className="block text-xs font-mono uppercase text-neutral mb-1.5">Your Email</label>
+                      <input
+                        required
+                        type="email"
+                        value={homeEmail}
+                        onChange={(e) => setHomeEmail(e.target.value)}
+                        placeholder="your.email@example.com"
+                        className="w-full px-4 py-3 bg-[#242424] border border-white/10 text-white rounded text-sm focus:outline-none focus:border-primary transition-colors"
+                      />
+                    </div>
+                  </div>
+                  <div>
+                    <label className="block text-xs font-mono uppercase text-neutral mb-1.5">Inquiry Category</label>
+                    <select
+                      value={homeCategory}
+                      onChange={(e) => setHomeCategory(e.target.value)}
+                      className="w-full px-4 py-3 bg-[#242424] border border-white/10 text-white rounded text-sm focus:outline-none focus:border-primary transition-colors"
+                    >
+                      <option>Corporate Sponsorship & Collaboration</option>
+                      <option>Technical Seminar / Workshop Collaboration</option>
+                      <option>Industrial Excursion & Tour Partnership</option>
+                      <option>Student Membership Assistance</option>
+                      <option>General Inquiries</option>
+                    </select>
+                  </div>
+                  <div>
+                    <label className="block text-xs font-mono uppercase text-neutral mb-1.5">Message Content</label>
+                    <textarea
+                      required
+                      rows={4}
+                      value={homeMessage}
+                      onChange={(e) => setHomeMessage(e.target.value)}
+                      placeholder="Outline your inquiry or proposal..."
+                      className="w-full px-4 py-3 bg-[#242424] border border-white/10 text-white rounded text-sm focus:outline-none focus:border-primary transition-colors resize-none"
+                    />
+                  </div>
+                  <div className="pt-2">
+                    <button
+                      type="submit"
+                      className="w-full py-4 bg-primary text-white font-medium hover:bg-[#a60d26] transition-all uppercase tracking-widest text-xs rounded shadow-lg shadow-primary/30 font-mono flex items-center justify-center gap-2"
+                    >
+                      <Mail size={15} />
+                      <span>Transmit Directly to Chair (tahsin.kuetme@gmail.com)</span>
+                    </button>
+                    <span className="text-[11px] font-mono text-neutral/70 block text-center mt-2">
+                      Recipient: Tahsin Hossain (Chair, IMechE KUET) &middot; tahsin.kuetme@gmail.com
+                    </span>
+                  </div>
+                </form>
+              )}
+            </div>
+
           </div>
         </div>
       </section>
@@ -289,9 +472,14 @@ export default function Home() {
             Become part of a premier community where mechanical engineering meets opportunity.
           </p>
           <div className="flex flex-col sm:flex-row gap-6 justify-center items-center">
-            <Link href="/join" className="inline-flex items-center justify-center gap-2 bg-primary text-white px-8 py-4 font-medium hover:bg-primary/90 transition-all text-lg shadow-xl shadow-primary/30">
+            <a 
+              href="https://docs.google.com/forms/d/e/1FAIpQLSc_2IW3r4Puhv0D0273WoyeV53JMxprDV3IGy5WsXbDErFXPQ/viewform"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center justify-center gap-2 bg-primary text-white px-8 py-4 font-medium hover:bg-primary/90 transition-all text-lg shadow-xl shadow-primary/30"
+            >
               Join IMechE KUET Student Chapter
-            </Link>
+            </a>
             <Link href="/about" className="inline-flex items-center justify-center gap-2 text-white hover:text-primary transition-colors font-medium">
               Learn about our heritage <ChevronRight size={18} />
             </Link>
