@@ -64,6 +64,7 @@ export default function Sofe2026Page() {
   ];
 
   const officialRubricPdfUrl = "https://www.imeche.org/docs/default-source/1-oscar/Get-involved/young-members/sofe/apr-24/sofe-judges-marking-scheme-2024.pdf?sfvrsn=2";
+  const abstractFormUrl = "https://forms.gle/YcVCi8GGXUBEMSDY6";
 
   const presentationRubric = [
     {
@@ -237,16 +238,26 @@ export default function Sofe2026Page() {
 
             <div className="pt-4 flex flex-wrap items-center gap-4">
               <a 
-                href="#qna"
-                className="px-8 py-4 bg-[#C8102E] text-white font-medium hover:bg-[#A00D24] transition-all font-mono text-xs uppercase tracking-widest rounded shadow-xl shadow-[#C8102E]/30 flex items-center gap-2"
+                href={abstractFormUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="px-8 py-4 bg-[#C8102E] text-white font-medium hover:bg-[#A00D24] transition-all font-mono text-xs uppercase tracking-widest rounded shadow-xl shadow-[#C8102E]/30 flex items-center gap-2 group"
               >
-                Competition Q&A <ArrowRight size={16} />
+                <FileText size={16} />
+                <span>Submit 100-Word Abstract</span>
+                <ExternalLink size={14} className="group-hover:translate-x-0.5 transition-transform" />
               </a>
               <a 
                 href="#rubric"
                 className="px-6 py-4 bg-white/5 border border-white/15 text-neutral-200 hover:bg-white/10 hover:text-white transition-all font-mono text-xs uppercase tracking-widest rounded flex items-center gap-2"
               >
                 Judging Criteria
+              </a>
+              <a 
+                href="#qna"
+                className="px-6 py-4 bg-white/5 border border-white/15 text-neutral-200 hover:bg-white/10 hover:text-white transition-all font-mono text-xs uppercase tracking-widest rounded flex items-center gap-2"
+              >
+                Q&A Guidelines
               </a>
               <a 
                 href={officialRubricPdfUrl}
@@ -323,7 +334,24 @@ export default function Sofe2026Page() {
                 </div>
               </div>
 
-              <div className="mt-8 pt-6 border-t border-white/10 flex items-center justify-between text-xs font-mono text-neutral-400">
+              {/* Direct Abstract Submission CTA */}
+              <div className="mt-6 pt-6 border-t border-white/10 space-y-2">
+                <a
+                  href={abstractFormUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-full py-4 bg-[#C8102E] hover:bg-[#A00D24] text-white font-mono text-xs uppercase tracking-widest font-semibold rounded-xl flex items-center justify-center gap-2 shadow-lg shadow-[#C8102E]/25 transition-all group"
+                >
+                  <FileText size={15} />
+                  <span>Submit 100-Word Abstract</span>
+                  <ExternalLink size={14} className="group-hover:translate-x-0.5 transition-transform" />
+                </a>
+                <span className="text-[11px] font-mono text-neutral-400 block text-center">
+                  Registration Cutoff: 13 September 2026 &middot; 11:59 PM BST
+                </span>
+              </div>
+
+              <div className="mt-4 pt-4 border-t border-white/10 flex items-center justify-between text-xs font-mono text-neutral-400">
                 <span>COORD: 22.8998° N, 89.5024° E</span>
                 <span className="text-[#FF4D6D] font-semibold">REF: SOfE-KUET-01</span>
               </div>
@@ -610,8 +638,33 @@ export default function Sofe2026Page() {
             ))}
           </div>
 
+          {/* High-Impact Abstract Submission Callout Banner */}
+          <div className="mt-16 p-8 sm:p-12 bg-gradient-to-r from-[#C8102E]/25 via-[#1a1a1a] to-[#141414] border border-[#C8102E]/40 rounded-2xl flex flex-col md:flex-row items-center justify-between gap-8 shadow-2xl reticle-corner">
+            <div className="space-y-3 max-w-xl">
+              <div className="inline-flex items-center gap-2 px-3 py-1 bg-[#C8102E]/20 border border-[#C8102E]/40 rounded text-xs font-mono tracking-widest uppercase text-[#FF4D6D] font-semibold">
+                <Timer size={13} /> Cutoff: 13 September 2026 &middot; 11:59 PM BST
+              </div>
+              <h3 className="font-display text-3xl sm:text-4xl text-white">
+                Ready to Enter SOfE 2026?
+              </h3>
+              <p className="text-sm sm:text-base text-neutral-300 leading-relaxed">
+                Submit your 100-word engineering synopsis through the official submission form to secure your entry in the KUET chapter heats.
+              </p>
+            </div>
+            <a
+              href={abstractFormUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="px-8 py-4 bg-[#C8102E] hover:bg-[#A00D24] text-white font-mono text-xs uppercase tracking-widest font-semibold rounded-xl flex items-center gap-2 shadow-xl shadow-[#C8102E]/30 transition-all shrink-0 group"
+            >
+              <FileText size={16} />
+              <span>Submit Abstract (Google Form)</span>
+              <ExternalLink size={15} className="group-hover:translate-x-0.5 transition-transform" />
+            </a>
+          </div>
+
           {/* Support Bar */}
-          <div className="mt-12 p-6 bg-[#181818] border border-white/10 rounded-xl flex flex-col sm:flex-row items-center justify-between gap-4">
+          <div className="mt-8 p-6 bg-[#181818] border border-white/10 rounded-xl flex flex-col sm:flex-row items-center justify-between gap-4">
             <div className="flex items-center gap-3">
               <Mail className="text-[#C8102E] shrink-0" size={20} />
               <div>

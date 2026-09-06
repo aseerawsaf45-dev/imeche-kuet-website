@@ -104,12 +104,23 @@ export default async function EventDetail({ params }: { params: Promise<{ id: st
               </ul>
 
               {event.registrationStatus === "OPEN" ? (
-                <Link 
-                  href="/join"
-                  className="block text-center w-full py-4 bg-primary text-white font-medium hover:bg-primary/90 transition-colors uppercase font-mono text-xs tracking-wider rounded"
-                >
-                  Register For Event
-                </Link>
+                event.abstractLink ? (
+                  <a 
+                    href={event.abstractLink}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="block text-center w-full py-4 bg-primary text-white font-medium hover:bg-primary/90 transition-colors uppercase font-mono text-xs tracking-wider rounded shadow-lg shadow-primary/30"
+                  >
+                    Submit 100-Word Abstract
+                  </a>
+                ) : (
+                  <Link 
+                    href={event.externalLink || "/join"}
+                    className="block text-center w-full py-4 bg-primary text-white font-medium hover:bg-primary/90 transition-colors uppercase font-mono text-xs tracking-wider rounded"
+                  >
+                    Register For Event
+                  </Link>
+                )
               ) : (
                 <div className="text-center w-full py-4 bg-white/10 text-neutral font-medium uppercase font-mono text-xs tracking-wider rounded border border-white/10 cursor-not-allowed">
                   Registration Concluded

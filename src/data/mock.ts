@@ -12,6 +12,7 @@ export interface EventItem {
   schedule?: { time: string; activity: string }[];
   registrationStatus: "OPEN" | "CLOSED" | "COMPLETED";
   externalLink?: string;
+  abstractLink?: string;
 }
 
 export interface ProjectItem {
@@ -112,7 +113,8 @@ export const events: EventItem[] = [
       { time: "03:45 PM", activity: "Awards Ceremony (£300 Winner / £200 Runner-up)" }
     ],
     registrationStatus: "OPEN",
-    externalLink: "/sofe"
+    externalLink: "/sofe",
+    abstractLink: "https://forms.gle/YcVCi8GGXUBEMSDY6"
   },
   {
     id: "smart-solar-irrigation-competition-2026",
