@@ -1,0 +1,153 @@
+@import "tailwindcss";
+
+:root {
+  --background: #151515;
+  --foreground: #F6F5F2;
+  --primary: #C8102E;
+  --secondary: #242424;
+  --pure-white: #FFFFFF;
+  --neutral-gray: #B0B0B0;
+  --light-gray: #E7E5E0;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-primary: var(--primary);
+  --color-secondary: var(--secondary);
+  --color-white: var(--pure-white);
+  --color-neutral: var(--neutral-gray);
+  --color-light: var(--light-gray);
+  
+  --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+  --font-display: var(--font-dm-serif), ui-serif, Georgia, serif;
+}
+
+body {
+  background-color: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-sans);
+}
+
+::selection {
+  background-color: var(--primary);
+  color: var(--pure-white);
+}
+
+@keyframes spin-clockwise {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes spin-counterclockwise {
+  from {
+    transform: rotate(360deg);
+  }
+  to {
+    transform: rotate(0deg);
+  }
+}
+
+@keyframes pulse-glow {
+  0%, 100% {
+    opacity: 0.35;
+    transform: scale(0.96);
+  }
+  50% {
+    opacity: 0.75;
+    transform: scale(1.04);
+  }
+}
+
+.animate-spin-clockwise-slow {
+  animation: spin-clockwise 45s linear infinite;
+}
+
+.animate-spin-counterclockwise-slow {
+  animation: spin-counterclockwise 30s linear infinite;
+}
+
+.animate-spin-clockwise-fast {
+  animation: spin-clockwise 15s linear infinite;
+}
+
+.animate-pulse-glow {
+  animation: pulse-glow 4s ease-in-out infinite;
+}
+
+.svg-origin-center {
+  transform-box: fill-box;
+  transform-origin: center;
+}
+
+/* Technical Blueprint Grid Pattern */
+.bg-cad-grid {
+  background-image: 
+    linear-gradient(to right, rgba(255, 255, 255, 0.04) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.04) 1px, transparent 1px);
+  background-size: 32px 32px;
+}
+
+.bg-blueprint-dark {
+  background-color: #121212;
+  background-image: 
+    radial-gradient(rgba(200, 16, 46, 0.12) 1px, transparent 1px),
+    linear-gradient(to right, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+  background-size: 48px 48px, 24px 24px, 24px 24px;
+}
+
+/* Interactive Card Glowing Border Sweep */
+.engineering-card {
+  position: relative;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.engineering-card::before {
+  content: '';
+  position: absolute;
+  inset: -1px;
+  border-radius: inherit;
+  padding: 1px;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), transparent 60%, rgba(200, 16, 46, 0.3));
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  pointer-events: none;
+  opacity: 0.6;
+  transition: opacity 0.3s ease;
+}
+
+.engineering-card:hover::before {
+  opacity: 1;
+  background: linear-gradient(135deg, rgba(200, 16, 46, 0.6), transparent 50%, rgba(255, 255, 255, 0.3));
+}
+
+/* Precision Reticle Marks on Corners */
+.reticle-corner {
+  position: relative;
+}
+
+.reticle-corner::after {
+  content: '+';
+  position: absolute;
+  top: 6px;
+  right: 8px;
+  font-family: monospace;
+  font-size: 10px;
+  color: var(--primary);
+  opacity: 0.4;
+  pointer-events: none;
+  transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+.reticle-corner:hover::after {
+  opacity: 1;
+  transform: rotate(90deg);
+}
+
+

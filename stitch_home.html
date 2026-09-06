@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>IMechE KUET Student Chapter</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&amp;family=Public+Sans:wght@300;400;500;700;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        primary: {
+                            DEFAULT: '#C8102E', // Red accent
+                            container: '#C8102E', // Used for some active states
+                        },
+                        background: {
+                            DEFAULT: '#151515',
+                            secondary: '#242424',
+                        },
+                        text: {
+                            DEFAULT: '#F6F5F2', // Off-white
+                            muted: '#7A7A7A', // Neutral Gray
+                        }
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    fontFamily: {
+                        "headline": ["Public Sans", "sans-serif"],
+                        "display": ["Public Sans", "sans-serif"],
+                        "body": ["Inter", "sans-serif"],
+                        "label": ["Public Sans", "sans-serif"]
+                    },
+                },
+            },
+        }
+    </script>
+<style>
+        body {
+            background-color: #151515;
+            color: #F6F5F2;
+        }
+        
+        /* Drawer animation */
+        #nav-drawer {
+            transform: translateX(-100%);
+            transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        #nav-drawer.open {
+            transform: translateX(0);
+        }
+        #drawer-overlay {
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.3s ease;
+        }
+        #drawer-overlay.open {
+            opacity: 1;
+            pointer-events: auto;
+        }
+    </style>
+</head>
+<body class="font-body antialiased flex flex-col min-h-screen relative overflow-x-hidden">
+<!-- TopAppBar -->
+<header class="fixed top-0 w-full z-50 bg-[#151515]/90 backdrop-blur-md border-b border-[#7A7A7A]/20 transition-transform duration-200">
+<div class="flex justify-between items-center max-w-[1440px] mx-auto px-6 md:px-12 py-4 md:py-6">
+<!-- Leading Icon (Menu for Mobile/Drawer) -->
+<button class="text-[#F6F5F2] hover:opacity-80 transition-opacity flex items-center justify-center p-2 rounded-full focus:outline-none focus:ring-2 focus:ring-[#C8102E]" id="menu-btn">
+<span class="material-symbols-outlined text-2xl" data-icon="menu">menu</span>
+</button>
+<!-- Headline / Brand -->
+<div class="font-headline font-black text-xl tracking-[0.2em] text-[#F6F5F2] uppercase flex items-center gap-2">
+<span class="material-symbols-outlined text-[#C8102E]" data-icon="precision_manufacturing">precision_manufacturing</span>
+<span>IMechE KUET</span>
+</div>
+<!-- Trailing Action -->
+<button class="hidden md:flex items-center text-[#F6F5F2] hover:opacity-80 transition-opacity font-headline text-sm uppercase tracking-tighter hover:text-[#C8102E] duration-300">
+                JOIN CHAPTER
+            </button>
+<button class="md:hidden flex items-center text-[#C8102E] hover:opacity-80 transition-opacity">
+<span class="material-symbols-outlined" data-icon="login">login</span>
+</button>
+</div>
+</header>
+<!-- NavigationDrawer Overlay -->
+<div class="fixed inset-0 bg-black/60 z-[55] backdrop-blur-sm" id="drawer-overlay"></div>
+<!-- NavigationDrawer -->
+<aside class="fixed inset-y-0 left-0 z-[60] flex flex-col h-full w-80 bg-[#242424] shadow-2xl border-r border-[#7A7A7A]/10" id="nav-drawer">
+<div class="p-8 border-b border-[#7A7A7A]/10 flex justify-between items-center">
+<h2 class="font-headline font-bold text-[#F6F5F2] text-sm uppercase tracking-widest leading-snug">INSTITUTION OF MECHANICAL ENGINEERS</h2>
+<button class="text-[#7A7A7A] hover:text-[#F6F5F2] transition-colors" id="close-drawer-btn">
+<span class="material-symbols-outlined">close</span>
+</button>
+</div>
+<nav class="flex-1 overflow-y-auto py-4">
+<ul class="flex flex-col">
+<!-- Heritage (Active) -->
+<li>
+<a class="flex items-center gap-4 bg-[#C8102E] text-[#F6F5F2] font-bold py-4 px-8 font-body text-label-lg uppercase tracking-widest" href="#">
+<span class="material-symbols-outlined" data-icon="history_edu">history_edu</span>
+                        Heritage
+                    </a>
+</li>
+<!-- Technical -->
+<li>
+<a class="flex items-center gap-4 text-[#7A7A7A] hover:text-[#F6F5F2] py-4 px-8 font-body text-label-lg uppercase tracking-widest hover:bg-[#151515] transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="settings_gear">file_export</span>
+                        Technical
+                    </a>
+</li>
+<!-- Innovation -->
+<li>
+<a class="flex items-center gap-4 text-[#7A7A7A] hover:text-[#F6F5F2] py-4 px-8 font-body text-label-lg uppercase tracking-widest hover:bg-[#151515] transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="lightbulb">lightbulb</span>
+                        Innovation
+                    </a>
+</li>
+<!-- Gallery -->
+<li>
+<a class="flex items-center gap-4 text-[#7A7A7A] hover:text-[#F6F5F2] py-4 px-8 font-body text-label-lg uppercase tracking-widest hover:bg-[#151515] transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="collections">collections</span>
+                        Gallery
+                    </a>
+</li>
+<!-- Council -->
+<li>
+<a class="flex items-center gap-4 text-[#7A7A7A] hover:text-[#F6F5F2] py-4 px-8 font-body text-label-lg uppercase tracking-widest hover:bg-[#151515] transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="groups">groups</span>
+                        Council
+                    </a>
+</li>
+</ul>
+</nav>
+<div class="p-8 border-t border-[#7A7A7A]/10">
+<button class="w-full py-3 border border-[#C8102E] text-[#C8102E] font-headline uppercase tracking-widest text-sm hover:bg-[#C8102E] hover:text-[#F6F5F2] transition-colors duration-300">
+                JOIN CHAPTER
+            </button>
+</div>
+</aside>
+<main class="flex-grow pt-[72px] md:pt-[88px]"> <!-- Offset for fixed header -->
+<!-- 1. Cinematic Hero -->
+<section class="relative w-full h-[85vh] min-h-[600px] flex items-center justify-center overflow-hidden">
+<!-- Background Image -->
+<div class="absolute inset-0 w-full h-full bg-cover bg-center bg-no-repeat" data-alt="Close up rendering of highly detailed metallic clockwork gears and precision engineering components with subtle red lighting accents on a dark textured background, luxurious and technical." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuAMj6Bbh9BL3W5sq6f37U6Lab1ewioVvf15Nu2JQ37vZoNqYUcJ7vuLxmLZndpXCk1Wkll32N0CCi5d2EwSZYbBuDTGjkuQg53vOYBgBwRL92oUIpecTf4u0I4yrQ6V9yJpYlI6d-VaXqo4snEg7x7r5u82s-rtSu6SglmQU3Wd8ZSOngBUed4niayCvQd72YPe_BjZTgEs_SdPK0TZkHwTAHBFFv1WGGc9QHLkjfH5IIz-Q0uO5c95-iKkC62IhfO5DKi5Lg4MujPu')"></div>
+<!-- Gradient Overlay -->
+<div class="absolute inset-0 bg-gradient-to-b from-[#151515]/60 via-[#151515]/40 to-[#151515]"></div>
+<div class="relative z-10 max-w-5xl mx-auto px-6 text-center">
+<div class="inline-block mb-6 px-4 py-1 border border-[#C8102E]/50 rounded-full backdrop-blur-sm">
+<span class="font-label text-xs uppercase tracking-[0.2em] text-[#C8102E]">IMechE KUET Student Chapter</span>
+</div>
+<h1 class="font-headline font-black text-5xl md:text-7xl lg:text-8xl text-[#F6F5F2] leading-tight tracking-tighter mb-8 drop-shadow-2xl">
+                    Engineering the <br class="hidden md:block"/>Future, <span class="text-transparent bg-clip-text bg-gradient-to-r from-[#C8102E] to-red-600">One Idea</span> at a Time.
+                </h1>
+<p class="font-body text-lg md:text-xl text-[#F6F5F2]/80 max-w-2xl mx-auto font-light leading-relaxed mb-12">
+                    A premier platform for aspiring mechanical engineers to innovate, collaborate, and push the boundaries of technology.
+                </p>
+<button class="group relative px-8 py-4 bg-transparent overflow-hidden">
+<div class="absolute inset-0 w-full h-full border border-[#C8102E] transition-all duration-300 group-hover:bg-[#C8102E]"></div>
+<span class="relative font-headline text-sm uppercase tracking-widest text-[#F6F5F2] transition-colors duration-300 flex items-center gap-2 justify-center">
+                        Discover Our Mission
+                        <span class="material-symbols-outlined text-lg transform group-hover:translate-x-1 transition-transform">arrow_forward</span>
+</span>
+</button>
+</div>
+</section>
+<!-- 2. Editorial Introduction -->
+<section class="py-24 px-6 md:px-12 max-w-[1440px] mx-auto">
+<div class="max-w-4xl mx-auto text-center">
+<span class="material-symbols-outlined text-[#C8102E] text-4xl mb-6 block">account_balance</span>
+<h2 class="font-headline font-light text-3xl md:text-5xl text-[#F6F5F2] leading-tight tracking-wide mb-10">
+                    Cultivating a legacy of excellence in mechanical engineering through rigorous technical pursuit and visionary innovation.
+                </h2>
+<div class="w-12 h-1 bg-[#C8102E] mx-auto mb-10"></div>
+<p class="font-body text-[#7A7A7A] text-lg md:text-xl leading-relaxed font-light">
+                    As an official student chapter of the Institution of Mechanical Engineers, we bridge the gap between academic theory and industrial application. We foster an elite community of forward-thinkers dedicated to solving complex challenges and advancing the engineering profession on a global scale.
+                </p>
+</div>
+</section>
+<!-- 3. Large Impact Statistics -->
+<section class="py-16 bg-[#242424] border-y border-[#7A7A7A]/10">
+<div class="max-w-[1440px] mx-auto px-6 md:px-12">
+<div class="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-12 divide-x divide-[#7A7A7A]/20">
+<!-- Stat 1 -->
+<div class="text-center px-4">
+<div class="font-headline font-black text-4xl md:text-6xl text-[#F6F5F2] mb-2 tracking-tighter">500<span class="text-[#C8102E]">+</span></div>
+<div class="font-label text-xs uppercase tracking-widest text-[#7A7A7A]">Active Members</div>
+</div>
+<!-- Stat 2 -->
+<div class="text-center px-4">
+<div class="font-headline font-black text-4xl md:text-6xl text-[#F6F5F2] mb-2 tracking-tighter">25<span class="text-[#C8102E]">+</span></div>
+<div class="font-label text-xs uppercase tracking-widest text-[#7A7A7A]">Technical Projects</div>
+</div>
+<!-- Stat 3 -->
+<div class="text-center px-4">
+<div class="font-headline font-black text-4xl md:text-6xl text-[#F6F5F2] mb-2 tracking-tighter">10<span class="text-[#C8102E]">+</span></div>
+<div class="font-label text-xs uppercase tracking-widest text-[#7A7A7A]">Years Legacy</div>
+</div>
+<!-- Stat 4 -->
+<div class="text-center px-4">
+<div class="font-headline font-black text-4xl md:text-6xl text-[#F6F5F2] mb-2 tracking-tighter">50<span class="text-[#C8102E]">+</span></div>
+<div class="font-label text-xs uppercase tracking-widest text-[#7A7A7A]">Industry Partners</div>
+</div>
+</div>
+</div>
+</section>
+<!-- 4. What We Do (Bento Grid) -->
+<section class="py-24 px-6 md:px-12 max-w-[1440px] mx-auto">
+<div class="mb-16 flex flex-col md:flex-row md:items-end justify-between gap-6 border-b border-[#7A7A7A]/20 pb-8">
+<div>
+<h3 class="font-label text-sm uppercase tracking-[0.3em] text-[#C8102E] mb-2">Our Pillars</h3>
+<h2 class="font-headline text-4xl md:text-5xl font-bold text-[#F6F5F2] tracking-tight">Core Initiatives.</h2>
+</div>
+<p class="font-body text-[#7A7A7A] max-w-md">Comprehensive development through structured disciplines designed to elevate engineering acumen.</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 auto-rows-[400px]">
+<!-- Tile 1: Technical (Large) -->
+<div class="lg:col-span-2 relative group overflow-hidden bg-[#242424]">
+<div class="absolute inset-0 w-full h-full bg-cover bg-center transition-transform duration-700 group-hover:scale-105" data-alt="A high-tech digital tablet displaying complex 3D CAD models of mechanical engineering components in wireframe red, resting on a dark workbench surrounded by precision tools, moody red and dark lighting." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuByo5q4b-kBx7CObEPNPB83gqCapVh9ZOHe_xPBc2eYfDOJ9Zu4vYtQqqOaydRjWZOMuxfszFtdFZexQ5aJ2gx8PdYzmcl_xm4zgraZ_k-Iy8EpLyC6V2vXpfd5EUwS-6l_L9Uhfj_aGISHWXwjVkWFrqSe0rcEg44IPC6bNLq8-nrXowvMz2QTEJ3M1h53odTNEpaKhJS6woJxoHsETJqWJfLg0vMd2ljSvr8m1jImCB5bUpK6ZiuYnpQuDBdTLAwHRfp310hteC5h')"></div>
+<div class="absolute inset-0 bg-gradient-to-t from-[#151515] via-[#151515]/50 to-transparent"></div>
+<div class="absolute inset-0 p-8 flex flex-col justify-end">
+<div class="w-10 h-10 mb-4 bg-[#C8102E] flex items-center justify-center">
+<span class="material-symbols-outlined text-[#F6F5F2]" data-icon="architecture">architecture</span>
+</div>
+<h4 class="font-headline text-2xl font-bold text-[#F6F5F2] mb-2">Technical Engineering</h4>
+<p class="font-body text-[#F6F5F2]/80 text-sm max-w-md">Hands-on workshops, CAD/CAM training, and complex problem-solving sessions using industry-standard tools.</p>
+</div>
+</div>
+<!-- Tile 2: Professional -->
+<div class="relative group overflow-hidden bg-[#242424] border border-[#7A7A7A]/10 p-8 flex flex-col justify-between hover:border-[#C8102E]/50 transition-colors duration-300">
+<div class="flex justify-between items-start">
+<div class="w-10 h-10 border border-[#7A7A7A] flex items-center justify-center rounded-full">
+<span class="material-symbols-outlined text-[#7A7A7A]" data-icon="work">work</span>
+</div>
+<span class="material-symbols-outlined text-[#C8102E] opacity-0 group-hover:opacity-100 transition-opacity" data-icon="arrow_outward">arrow_outward</span>
+</div>
+<div>
+<h4 class="font-headline text-xl font-bold text-[#F6F5F2] mb-2">Professional Dev.</h4>
+<p class="font-body text-[#7A7A7A] text-sm">Seminars with industry leaders, resume building, and networking events to prepare for the corporate world.</p>
+</div>
+</div>
+<!-- Tile 3: Innovation & Community (Large) -->
+<div class="lg:col-span-3 relative group overflow-hidden bg-[#242424] min-h-[400px]">
+<div class="absolute inset-0 w-full h-full bg-cover bg-center transition-transform duration-700 group-hover:scale-105" data-alt="A diverse group of engineering students gathered around a glowing, high-tech drafting table in a dimly lit laboratory with red ambient lighting, examining mechanical prototypes and collaborating on a project." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuAzo571lFz_V4uSOQgn6uZn1ql47Y-_DINp83zuMuQzBV8WGiN29NzjNuzhGLqAhYFv5quPQqkI1ygcAh0GvnHj0GZzsyFF5E5TYYpNbTdruywjtohx9LvNwSjzghNdjlw0NjwjZDBga0zWudPdxmh7ssajfM5ozIURf56oDs0WVtnPWJCPRby_5QzvltpoCujyM2kyAi-57aOsqD6wFmPY7Q6Ge2CC8BryBaPtnJQRyEm4gu4Hj3GQp_sAcO5tiu4O_0Nl4nWlJrxd')"></div>
+<div class="absolute inset-0 bg-gradient-to-r from-[#151515] via-[#151515]/80 to-transparent"></div>
+<div class="absolute inset-0 p-8 md:p-12 flex flex-col justify-center max-w-2xl">
+<span class="font-label text-xs uppercase tracking-widest text-[#C8102E] mb-4 block">Collaboration</span>
+<h4 class="font-headline text-3xl md:text-4xl font-bold text-[#F6F5F2] mb-4">Innovation &amp; Community</h4>
+<p class="font-body text-[#F6F5F2]/80 text-base mb-8">Fostering a culture of teamwork and out-of-the-box thinking. We build solutions that matter, together.</p>
+<a class="inline-flex items-center gap-2 text-[#F6F5F2] font-headline text-sm uppercase tracking-widest hover:text-[#C8102E] transition-colors" href="#">
+                            View Gallery <span class="material-symbols-outlined" data-icon="arrow_right_alt">arrow_right_alt</span>
+</a>
+</div>
+</div>
+</div>
+</section>
+<!-- 7. Join Us CTA -->
+<section class="py-32 px-6 relative overflow-hidden">
+<div class="absolute inset-0 bg-[#C8102E]"></div>
+<!-- Subtle Texture/Pattern Overlay -->
+<div class="absolute inset-0 opacity-10 bg-[radial-gradient(#151515_1px,transparent_1px)] [background-size:16px_16px]"></div>
+<div class="relative z-10 max-w-4xl mx-auto text-center">
+<h2 class="font-headline font-black text-4xl md:text-6xl text-[#F6F5F2] uppercase tracking-tighter mb-6">
+                    Become Part of the Legacy.
+                </h2>
+<p class="font-body text-[#F6F5F2]/90 text-lg md:text-xl font-light mb-10 max-w-2xl mx-auto">
+                    Join the IMechE KUET Student Chapter and elevate your engineering journey among the brightest minds.
+                </p>
+<button class="bg-[#151515] text-[#F6F5F2] px-10 py-5 font-headline text-sm uppercase tracking-[0.2em] hover:bg-[#F6F5F2] hover:text-[#151515] transition-colors duration-300 shadow-2xl">
+                    Apply for Membership
+                </button>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="bg-[#151515] border-t border-[#C8102E]/30 w-full bottom-0">
+<div class="max-w-[1440px] mx-auto px-12 py-20 flex flex-col md:flex-row justify-between items-center gap-8">
+<!-- Brand Logo / Copyright -->
+<div class="flex flex-col items-center md:items-start gap-4">
+<div class="font-headline font-black text-[#F6F5F2] opacity-50 text-xl tracking-[0.2em]">
+                    IMechE KUET
+                </div>
+<p class="font-label text-xs tracking-[0.3em] uppercase text-[#7A7A7A]">
+                    © 2024 IMechE KUET STUDENT CHAPTER. ALL RIGHTS RESERVED.
+                </p>
+</div>
+<!-- Links -->
+<nav>
+<ul class="flex flex-wrap justify-center md:justify-end gap-6 md:gap-8">
+<li>
+<a class="font-label text-xs tracking-[0.3em] uppercase text-[#7A7A7A] hover:text-[#C8102E] transition-colors duration-500" href="#">CONSTITUTION</a>
+</li>
+<li>
+<a class="font-label text-xs tracking-[0.3em] uppercase text-[#7A7A7A] hover:text-[#C8102E] transition-colors duration-500" href="#">GOVERNANCE</a>
+</li>
+<li>
+<a class="font-label text-xs tracking-[0.3em] uppercase text-[#7A7A7A] hover:text-[#C8102E] transition-colors duration-500" href="#">CONTACT</a>
+</li>
+<li>
+<a class="font-label text-xs tracking-[0.3em] uppercase text-[#7A7A7A] hover:text-[#C8102E] transition-colors duration-500" href="#">HQ LONDON</a>
+</li>
+</ul>
+</nav>
+</div>
+</footer>
+<!-- Interactive Scripts -->
+<script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const menuBtn = document.getElementById('menu-btn');
+            const closeBtn = document.getElementById('close-drawer-btn');
+            const drawer = document.getElementById('nav-drawer');
+            const overlay = document.getElementById('drawer-overlay');
+
+            function toggleDrawer() {
+                drawer.classList.toggle('open');
+                overlay.classList.toggle('open');
+                // Prevent body scroll when drawer is open
+                document.body.style.overflow = drawer.classList.contains('open') ? 'hidden' : '';
+            }
+
+            menuBtn.addEventListener('click', toggleDrawer);
+            closeBtn.addEventListener('click', toggleDrawer);
+            overlay.addEventListener('click', toggleDrawer);
+
+            // Simple scroll effect for header
+            const header = document.querySelector('header');
+            let lastScroll = 0;
+
+            window.addEventListener('scroll', () => {
+                const currentScroll = window.pageYOffset;
+                
+                if (currentScroll <= 0) {
+                    header.classList.remove('-translate-y-full');
+                    return;
+                }
+                
+                if (currentScroll > lastScroll && !header.classList.contains('-translate-y-full')) {
+                    // Scroll Down
+                    header.classList.add('-translate-y-full');
+                } else if (currentScroll < lastScroll && header.classList.contains('-translate-y-full')) {
+                    // Scroll Up
+                    header.classList.remove('-translate-y-full');
+                }
+                lastScroll = currentScroll;
+            });
+        });
+    </script>
+</body></html>

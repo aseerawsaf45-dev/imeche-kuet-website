@@ -1,0 +1,1 @@
+export default function Page() { return (<div className="min-h-screen pt-32 px-6 container mx-auto"><h1 className="text-5xl font-display mb-8 capitalize">privacy</h1><p className="text-neutral-gray">This section is currently under development.</p></div>); }
