@@ -38,6 +38,13 @@ export const metadata: Metadata = {
     title: "IMechE KUET Student Chapter",
     description: "Improving the world through engineering. Khulna University of Engineering & Technology.",
   },
+  icons: {
+    icon: [
+      { url: "/favicon.png", type: "image/png" },
+    ],
+    shortcut: "/favicon.png",
+    apple: "/favicon.png",
+  },
 };
 
 export default function RootLayout({
