@@ -1,5 +1,5 @@
 import { notFound } from "next/navigation";
-import { ArrowLeft, Calendar, MapPin, Clock, Users } from "lucide-react";
+import { ArrowLeft, Calendar, MapPin, Clock, Users, ExternalLink } from "lucide-react";
 import Link from "next/link";
 import { events } from "@/data/mock";
 
@@ -112,6 +112,16 @@ export default async function EventDetail({ params }: { params: Promise<{ id: st
                     className="block text-center w-full py-4 bg-primary text-white font-medium hover:bg-primary/90 transition-colors uppercase font-mono text-xs tracking-wider rounded shadow-lg shadow-primary/30"
                   >
                     Submit 100-Word Abstract
+                  </a>
+                ) : (event.registrationLink || event.externalLink)?.startsWith("http") ? (
+                  <a 
+                    href={event.registrationLink || event.externalLink}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center justify-center gap-2 w-full py-4 bg-primary text-white font-medium hover:bg-primary/90 transition-colors uppercase font-mono text-xs tracking-wider rounded shadow-lg shadow-primary/30"
+                  >
+                    <span>Register / Event Details</span>
+                    <ExternalLink size={14} />
                   </a>
                 ) : (
                   <Link 

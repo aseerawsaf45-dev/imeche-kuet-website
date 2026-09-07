@@ -68,9 +68,16 @@ export default function EventsPage() {
             Past Archives ({pastEvents.length})
           </button>
 
-          <div className="ml-auto hidden sm:flex items-center gap-2 text-xs font-mono text-neutral/70">
-            <span>LIVE TELEMETRY // FACEBOOK SYNCHRONIZED</span>
-          </div>
+          <a
+            href="https://www.facebook.com/IMechE.KUET/events"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="ml-auto inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/5 hover:bg-[#1877F2]/15 border border-white/15 hover:border-[#1877F2]/40 text-xs font-mono uppercase tracking-wider text-neutral-300 hover:text-white transition-all shadow-sm"
+          >
+            <span className="w-2 h-2 rounded-full bg-[#1877F2] animate-pulse" />
+            <span>Facebook Events Feed</span>
+            <ExternalLink size={13} className="text-[#1877F2]" />
+          </a>
         </div>
 
         {/* Events Listing */}
@@ -160,18 +167,22 @@ export default function EventsPage() {
         {/* Official Facebook Community Link */}
         <div className="mt-16 p-8 rounded-2xl bg-gradient-to-r from-primary/10 via-[#181818] to-transparent border border-primary/30 flex flex-col md:flex-row items-center justify-between gap-6">
           <div>
-            <h4 className="font-display text-xl text-white mb-2">Want to see more live photos and updates?</h4>
-            <p className="text-neutral text-sm">
-              Visit our official Facebook page for real-time photo galleries, competition rulebooks, and announcement circulars.
+            <div className="inline-flex items-center gap-2 text-xs font-mono uppercase tracking-widest text-primary font-semibold mb-2">
+              <span className="w-2 h-2 rounded-full bg-primary animate-ping" />
+              <span>Official Facebook Events Hub</span>
+            </div>
+            <h4 className="font-display text-xl sm:text-2xl text-white mb-2">Explore Real-Time Facebook Events & Announcements</h4>
+            <p className="text-neutral text-sm max-w-2xl">
+              Track our live symposium schedules, rulebook releases, competition heats, and official circulars directly on our Facebook Events page.
             </p>
           </div>
           <a
-            href="https://www.facebook.com/IMechE.KUET"
+            href="https://www.facebook.com/IMechE.KUET/events"
             target="_blank"
             rel="noopener noreferrer"
-            className="px-6 py-3 rounded-full bg-primary hover:bg-[#a60d26] text-white text-xs font-mono uppercase tracking-wider font-semibold flex items-center gap-2 transition-all shrink-0"
+            className="px-6 py-3 rounded-full bg-primary hover:bg-[#a60d26] text-white text-xs font-mono uppercase tracking-wider font-semibold flex items-center gap-2 transition-all shrink-0 shadow-lg shadow-primary/25"
           >
-            <span>Facebook Page</span>
+            <span>Facebook Events</span>
             <ExternalLink size={14} />
           </a>
         </div>

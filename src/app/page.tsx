@@ -14,7 +14,9 @@ export default function Home() {
   const [homeEmail, setHomeEmail] = useState("");
   const [homeCategory, setHomeCategory] = useState("Corporate Sponsorship & Collaboration");
   const [homeMessage, setHomeMessage] = useState("");
-  const featuredEvents = events.slice(0, 4);
+  // Highlight only recent or current active events
+  const currentEvents = events.filter((e) => e.registrationStatus === "OPEN");
+  const highlightedEvents = currentEvents.length > 0 ? currentEvents : events.slice(0, 1);
 
   return (
     <>
@@ -200,36 +202,87 @@ export default function Home() {
               <p className="font-sans text-xs tracking-widest uppercase font-semibold text-primary mb-4">Activities & Forums</p>
               <h2 className="font-display text-4xl md:text-6xl text-white">Chapter Highlights</h2>
             </div>
-            <Link href="/events" className="inline-flex items-center gap-2 font-medium text-white/90 hover:text-primary transition-colors pb-2 border-b border-white/30 hover:border-primary">
-              View all initiatives <ArrowRight size={16} />
-            </Link>
+            <div className="flex flex-wrap items-center gap-4">
+              <a 
+                href="https://www.facebook.com/IMechE.KUET/events"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-[#1877F2]/40 bg-[#1877F2]/10 text-xs font-mono uppercase tracking-wider text-neutral-200 hover:text-white hover:bg-[#1877F2]/20 hover:border-[#1877F2]/60 transition-all"
+              >
+                <span className="w-2 h-2 rounded-full bg-[#1877F2] animate-pulse" />
+                <span>Facebook Events</span>
+                <ExternalLink size={13} className="text-[#1877F2]" />
+              </a>
+              <Link href="/events" className="inline-flex items-center gap-2 font-medium text-white/90 hover:text-primary transition-colors pb-1 border-b border-white/30 hover:border-primary">
+                View all initiatives <ArrowRight size={16} />
+              </Link>
+            </div>
           </ScrollReveal>
 
-          <StaggerContainer className="flex flex-col gap-0 border-y border-white/10">
-            {featuredEvents.map((event) => (
+          <StaggerContainer className="flex flex-col gap-4">
+            {highlightedEvents.map((event) => (
               <StaggerItem key={event.id}>
-                <Link href={`/events/${event.id}`} className="group grid grid-cols-1 md:grid-cols-12 gap-8 py-10 border-b border-white/10 last:border-0 hover:bg-white/5 transition-colors px-6 reticle-corner bg-[#141414] text-white">
-                  <div className="md:col-span-2 flex flex-col justify-center">
-                    <span className="font-display text-2xl md:text-3xl text-white">{event.date}</span>
-                    <span className="font-mono text-sm text-neutral">{event.year}</span>
-                  </div>
-                  <div className="md:col-span-3 flex flex-col justify-center">
-                    <span className="text-xs uppercase tracking-widest font-semibold text-primary font-mono">{event.category}</span>
-                    <span className="text-xs text-neutral mt-1">{event.venue}</span>
-                  </div>
-                  <div className="md:col-span-6 flex flex-col justify-center">
-                    <h3 className="font-display text-2xl md:text-3xl text-white group-hover:text-primary transition-colors mb-2">{event.title}</h3>
-                    <p className="text-sm text-neutral line-clamp-1">{event.description}</p>
-                  </div>
-                  <div className="md:col-span-1 flex items-center justify-end">
-                    <div className="w-12 h-12 rounded-full border border-white/20 flex items-center justify-center group-hover:bg-primary group-hover:text-white group-hover:border-primary transition-all">
-                      <ArrowRight size={20} />
+                <Link 
+                  href={`/events/${event.id}`} 
+                  className="group block p-7 sm:p-9 border border-primary/30 hover:border-primary/70 rounded-2xl bg-gradient-to-br from-[#181818] via-[#141414] to-[#121212] transition-all reticle-corner shadow-2xl hover:shadow-primary/10 relative overflow-hidden text-white"
+                >
+                  <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 items-center">
+                    <div className="lg:col-span-2 flex flex-col justify-center border-b lg:border-b-0 lg:border-r border-white/10 pb-4 lg:pb-0 lg:pr-6">
+                      <span className="font-display text-2xl sm:text-3xl text-white tracking-tight">{event.date}</span>
+                      <span className="font-mono text-xs text-neutral tracking-widest uppercase">{event.year}</span>
+                    </div>
+                    
+                    <div className="lg:col-span-8 flex flex-col justify-center space-y-2.5">
+                      <div className="flex flex-wrap items-center gap-2.5">
+                        <span className="text-xs uppercase tracking-widest font-semibold text-primary font-mono px-2.5 py-0.5 rounded bg-primary/10 border border-primary/25">
+                          {event.category}
+                        </span>
+                        <span className="text-[11px] uppercase tracking-widest font-mono text-emerald-400 flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-emerald-500/10 border border-emerald-500/30 font-semibold">
+                          <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
+                          Current Event &middot; Registration Open
+                        </span>
+                      </div>
+                      
+                      <h3 className="font-display text-2xl sm:text-3xl text-white group-hover:text-primary transition-colors">
+                        {event.title}
+                      </h3>
+                      
+                      <p className="text-sm text-neutral line-clamp-2 leading-relaxed">
+                        {event.description}
+                      </p>
+
+                      <div className="flex flex-wrap items-center gap-x-6 gap-y-2 text-xs text-neutral/80 pt-1 font-mono">
+                        {event.venue && (
+                          <span className="flex items-center gap-1.5">
+                            <MapPin size={13} className="text-primary" />
+                            {event.venue}
+                          </span>
+                        )}
+                      </div>
+                    </div>
+
+                    <div className="lg:col-span-2 flex items-center justify-start lg:justify-end">
+                      <div className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-primary text-white text-xs font-mono uppercase tracking-wider font-semibold group-hover:bg-[#a60d26] transition-colors shadow-lg shadow-primary/20">
+                        <span>Details</span>
+                        <ArrowRight size={14} className="group-hover:translate-x-1 transition-transform" />
+                      </div>
                     </div>
                   </div>
                 </Link>
               </StaggerItem>
             ))}
           </StaggerContainer>
+
+          {/* Prompt to view historical archives */}
+          <div className="mt-8 flex items-center justify-end">
+            <Link 
+              href="/events" 
+              className="text-xs font-mono text-neutral hover:text-white transition-colors inline-flex items-center gap-1"
+            >
+              <span>Looking for past symposiums and technical workshops?</span>
+              <span className="text-primary underline ml-1">Browse Past Archives &rarr;</span>
+            </Link>
+          </div>
         </div>
       </section>
 

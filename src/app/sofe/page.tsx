@@ -173,7 +173,7 @@ export default function Sofe2026Page() {
     {
       category: "Support",
       q: "Who can I contact for queries regarding SOfE 2026?",
-      a: "For questions, clarifications, or mentorship regarding SOfE 2026, reach out directly to the IMechE KUET Student Chapter executive committee or email the chapter secretariat at imeche.kuet@gmail.com."
+      a: "For questions, clarifications, or mentorship regarding SOfE 2026, reach out directly to the IMechE KUET Student Chapter executive committee or email the chapter secretariat at imeche.kuetchapter@gmail.com."
     }
   ];
 
@@ -673,10 +673,10 @@ export default function Sofe2026Page() {
               </div>
             </div>
             <a 
-              href="mailto:imeche.kuet@gmail.com?subject=[SOfE%202026%20Inquiry]" 
+              href="mailto:imeche.kuetchapter@gmail.com?subject=[SOfE%202026%20Inquiry]" 
               className="px-5 py-2.5 bg-[#202020] hover:bg-[#2A2A2A] text-neutral-200 border border-white/15 text-xs font-mono uppercase tracking-wider rounded transition-colors whitespace-nowrap"
             >
-              imeche.kuet@gmail.com
+              imeche.kuetchapter@gmail.com
             </a>
           </div>
         </div>
