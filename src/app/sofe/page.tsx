@@ -269,6 +269,12 @@ export default function Sofe2026Page() {
                 <span>Marking Scheme (PDF)</span>
                 <ExternalLink size={12} className="group-hover:translate-x-0.5 transition-transform" />
               </a>
+              <Link
+                href="/sofe/resources"
+                className="px-6 py-4 bg-[#C8102E]/10 border border-[#C8102E]/30 text-[#FF4D6D] hover:bg-[#C8102E]/20 hover:text-[#FF4D6D] transition-all font-mono text-xs uppercase tracking-widest rounded flex items-center gap-2"
+              >
+                Previous Pitches
+              </Link>
             </div>
           </div>
 
