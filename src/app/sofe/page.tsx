@@ -32,7 +32,7 @@ export default function Sofe2026Page() {
     {
       step: "01",
       level: "KUET Chapter Heats",
-      date: "19 SEPT 2026 (TENTATIVE)",
+      date: "21 SEPT 2026",
       venue: "ME Seminar Hall, KUET",
       desc: "Preliminary presentations before a distinguished jury of KUET mechanical professors and chartered engineers. The top 2 finalists qualify for the national stage.",
       badge: "CURRENT STAGE"
@@ -168,7 +168,7 @@ export default function Sofe2026Page() {
     {
       category: "Venue",
       q: "When and where will the KUET Heats take place?",
-      a: "The KUET Chapter Heats are tentatively scheduled for 19 September 2026 at the Mechanical Engineering Seminar Hall, Mechanical Engineering Complex, KUET. Finalized timing details and itinerary are TBA."
+      a: "The KUET Chapter Heats are scheduled for 21 September 2026 at the Mechanical Engineering Seminar Hall, Mechanical Engineering Complex, KUET. Finalized timing details and itinerary are TBA."
     },
     {
       category: "Support",
@@ -296,7 +296,7 @@ export default function Sofe2026Page() {
                   <Calendar className="text-[#C8102E] mt-1 shrink-0" size={18} />
                   <div>
                     <span className="text-xs font-mono uppercase text-neutral-400 block">Keynote & Presentation Date</span>
-                    <span className="text-white font-medium">19 September 2026 (Tentative)</span>
+                    <span className="text-white font-medium">21 September 2026</span>
                   </div>
                 </div>
 
