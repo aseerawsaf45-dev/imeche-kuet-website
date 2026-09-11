@@ -132,8 +132,8 @@ export default function Sofe2026Page() {
   const qnaList = [
     {
       category: "General",
-      q: "What is Speak Out for Engineering (SOfE)?",
-      a: "SOfE is the Institution of Mechanical Engineers' (IMechE) premier global public speaking competition established in 1964. It challenges young engineers to communicate technical mechanical concepts clearly, persuasively, and accessibly to audiences with varying technical backgrounds."
+      q: "WHAT IS SOfE ABOUT?",
+      a: "SOfE (Speak Out for Engineering) is an engineering presentation competition where participants choose an engineering-related topic, develop a clear technical idea around it, and communicate it effectively to an audience and judging panel."
     },
     {
       category: "Timeline",
@@ -142,13 +142,18 @@ export default function Sofe2026Page() {
     },
     {
       category: "Eligibility",
-      q: "Who is eligible to participate at KUET?",
-      a: "Any undergraduate engineering student currently enrolled at KUET (Mechanical, Mechatronics, Textile, MSE, Chemical, IEM, etc.) or recent graduates within 10 years of graduation who are registered Affiliate or Associate members of IMechE."
+      q: "WHO CAN PARTICIPATE?",
+      a: "SOfE is an individual presentation competition. Each participant will present their own topic. Only for the 2K21–2K25 batches."
     },
     {
       category: "Format",
-      q: "What is the presentation format and duration?",
-      a: "Each competitor is allotted exactly 20 minutes for their verbal presentation accompanied by visual aids (slides, simulations, or prototypes), immediately followed by 10 minutes of jury questioning and defense. Time limits are strictly enforced under official IMechE competition rules."
+      q: "WHAT DO I NEED TO PREPARE?",
+      a: "It consists of two rounds: Abstract Submission and Final Pitch. In the Final Pitch prepare a presentation slide to show in 15 minutes timeframe."
+    },
+    {
+      category: "Preparation",
+      q: "What kinds of preparation should one take to participate in SOfE?",
+      a: "Competitors should prepare by structuring their presentation clearly and avoiding overly complex jargon. Focus on communicating your engineering idea effectively to a mixed audience. Practicing your delivery, preparing visual aids like slides, and reviewing previous winning pitches in the Resources Hub are excellent ways to prepare for both the presentation and the Q&A session."
     },
     {
       category: "Judging",
@@ -163,7 +168,7 @@ export default function Sofe2026Page() {
     {
       category: "Prizes",
       q: "What are the prizes for the KUET Chapter Heats?",
-      a: "The Chapter Winner receives a cash prize equivalent to £300, an official IMechE UK Certificate of Commendation, and automatic advancement to the Bangladesh National Finals. The Chapter Runner-Up receives £200 and an official IMechE certificate."
+      a: "The Chapter Winner receives 2500 BDT and automatic advancement to the Bangladesh National Finals. The Chapter Runner-Up receives 1500 BDT."
     },
     {
       category: "Venue",
@@ -177,7 +182,7 @@ export default function Sofe2026Page() {
     }
   ];
 
-  const categories = ["ALL", "General", "Timeline", "Eligibility", "Format", "Judging", "Prizes", "Support"];
+  const categories = ["ALL", "General", "Timeline", "Eligibility", "Format", "Preparation", "Judging", "Prizes", "Support"];
 
   const filteredQnA = selectedCategory === "ALL" 
     ? qnaList 
@@ -223,7 +228,7 @@ export default function Sofe2026Page() {
             {/* Quick Metrics Bar */}
             <div className="grid grid-cols-3 gap-4 pt-4 border-t border-white/10 max-w-lg">
               <div>
-                <span className="text-2xl sm:text-3xl font-display text-[#C8102E] block">£500+</span>
+                <span className="text-2xl sm:text-3xl font-display text-[#C8102E] block">4000 BDT</span>
                 <span className="text-[11px] font-mono uppercase text-neutral-400 tracking-wider">Prize Purse</span>
               </div>
               <div>
