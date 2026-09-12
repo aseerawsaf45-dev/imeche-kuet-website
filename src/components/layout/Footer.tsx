@@ -90,16 +90,6 @@ export function Footer() {
               Membership & Support
             </h3>
             <ul className="flex flex-col gap-3.5 text-sm text-neutral">
-              <li>
-                <a 
-                  href="https://docs.google.com/forms/d/e/1FAIpQLSc_2IW3r4Puhv0D0273WoyeV53JMxprDV3IGy5WsXbDErFXPQ/viewform"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="hover:text-primary transition-colors"
-                >
-                  Join Chapter
-                </a>
-              </li>
               <li><Link href="/contact" className="hover:text-primary transition-colors">Sponsorship & Collaborations</Link></li>
               <li>
                 <a 

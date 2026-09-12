@@ -76,14 +76,6 @@ export function Navbar() {
             </ul>
             <div className="flex items-center gap-4 border-l border-secondary/20 pl-4">
               <GlobalSearch />
-              <a
-                href="https://docs.google.com/forms/d/e/1FAIpQLSc_2IW3r4Puhv0D0273WoyeV53JMxprDV3IGy5WsXbDErFXPQ/viewform"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="px-5 py-2.5 bg-primary text-white text-sm font-medium transition-all hover:bg-primary/90 hover:-translate-y-0.5"
-              >
-                Join Us
-              </a>
             </div>
           </nav>
 
@@ -134,17 +126,6 @@ export function Navbar() {
               </Link>
             </li>
           ))}
-          <li>
-            <a
-              href="https://docs.google.com/forms/d/e/1FAIpQLSc_2IW3r4Puhv0D0273WoyeV53JMxprDV3IGy5WsXbDErFXPQ/viewform"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-primary mt-8 inline-block"
-              onClick={() => setMobileMenuOpen(false)}
-            >
-              Join Us
-            </a>
-          </li>
         </ul>
       </motion.div>
     </>

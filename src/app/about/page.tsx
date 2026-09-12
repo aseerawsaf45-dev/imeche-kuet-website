@@ -182,14 +182,12 @@ export default function AboutPage() {
             <p className="text-neutral text-lg mb-8 leading-relaxed">
               Join dedicated mechanical engineering students at KUET taking their technical capability and leadership beyond textbook boundaries.
             </p>
-            <a 
-              href="https://docs.google.com/forms/d/e/1FAIpQLSc_2IW3r4Puhv0D0273WoyeV53JMxprDV3IGy5WsXbDErFXPQ/viewform"
-              target="_blank"
-              rel="noopener noreferrer"
+            <Link 
+              href="/contact"
               className="inline-flex items-center gap-2 bg-primary text-white px-8 py-4 font-medium hover:bg-primary/90 transition-all text-sm uppercase tracking-widest"
             >
-              Join IMechE KUET Chapter <ArrowRight size={16} />
-            </a>
+              Get in Touch <ArrowRight size={16} />
+            </Link>
           </div>
           <div className="flex flex-col justify-center space-y-4">
             <div className="p-4 border-l border-primary/60 bg-white/5">

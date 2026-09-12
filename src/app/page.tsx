@@ -68,14 +68,12 @@ export default function Home() {
                   Explore Our Chapter 
                   <ArrowRight size={18} className="transform group-hover:translate-x-1 transition-transform" />
                 </Link>
-                <a 
-                  href="https://docs.google.com/forms/d/e/1FAIpQLSc_2IW3r4Puhv0D0273WoyeV53JMxprDV3IGy5WsXbDErFXPQ/viewform"
-                  target="_blank"
-                  rel="noopener noreferrer"
+                <Link 
+                  href="/events"
                   className="inline-flex items-center justify-center gap-2 bg-transparent border border-white/20 text-white px-8 py-4 font-medium hover:bg-white/5 transition-all"
                 >
-                  Join the Community
-                </a>
+                  Explore Events
+                </Link>
               </div>
             </StaggerItem>
           </StaggerContainer>
@@ -525,16 +523,17 @@ export default function Home() {
             Become part of a premier community where mechanical engineering meets opportunity.
           </p>
           <div className="flex flex-col sm:flex-row gap-6 justify-center items-center">
-            <a 
-              href="https://docs.google.com/forms/d/e/1FAIpQLSc_2IW3r4Puhv0D0273WoyeV53JMxprDV3IGy5WsXbDErFXPQ/viewform"
-              target="_blank"
-              rel="noopener noreferrer"
+            <Link 
+              href="/about" 
               className="inline-flex items-center justify-center gap-2 bg-primary text-white px-8 py-4 font-medium hover:bg-primary/90 transition-all text-lg shadow-xl shadow-primary/30"
             >
-              Join IMechE KUET Student Chapter
-            </a>
-            <Link href="/about" className="inline-flex items-center justify-center gap-2 text-white hover:text-primary transition-colors font-medium">
               Learn about our heritage <ChevronRight size={18} />
+            </Link>
+            <Link 
+              href="/contact" 
+              className="inline-flex items-center justify-center gap-2 text-white hover:text-primary transition-colors font-medium text-lg"
+            >
+              Contact Chapter Secretariat
             </Link>
           </div>
         </ScrollReveal>

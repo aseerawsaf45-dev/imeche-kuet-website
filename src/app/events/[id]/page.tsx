@@ -125,7 +125,7 @@ export default async function EventDetail({ params }: { params: Promise<{ id: st
                   </a>
                 ) : (
                   <Link 
-                    href={event.externalLink || "/join"}
+                    href={event.externalLink || "/contact"}
                     className="block text-center w-full py-4 bg-primary text-white font-medium hover:bg-primary/90 transition-colors uppercase font-mono text-xs tracking-wider rounded"
                   >
                     Register For Event
