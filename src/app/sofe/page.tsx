@@ -138,7 +138,7 @@ export default function Sofe2026Page() {
     {
       category: "Timeline",
       q: "What is the abstract submission deadline?",
-      a: "The abstract submission deadline is 13 September 2026 (11:59 PM BST). Competitors must submit their 100-word engineering abstract before this cutoff. Faculty evaluation results and shortlisted speaker selections will follow."
+      a: "The abstract submission deadline is 18 September 2026 (11:59 PM BST). Competitors must submit their 100-word engineering abstract before this cutoff. Faculty evaluation results and shortlisted speaker selections will follow."
     },
     {
       category: "Eligibility",
@@ -173,7 +173,7 @@ export default function Sofe2026Page() {
     {
       category: "Venue",
       q: "When and where will the KUET Heats take place?",
-      a: "The KUET Chapter Heats are scheduled for 21 September 2026 at the Mechanical Engineering Seminar Hall, Mechanical Engineering Complex, KUET. Finalized timing details and itinerary are TBA."
+      a: "The KUET Chapter Heats are scheduled for 21 September 2026 at the Mechanical Engineering Seminar Hall, Mechanical Engineering Complex, KUET, starting at 2.30 PM."
     },
     {
       category: "Support",
@@ -309,7 +309,7 @@ export default function Sofe2026Page() {
                   <Clock className="text-[#C8102E] mt-1 shrink-0" size={18} />
                   <div>
                     <span className="text-xs font-mono uppercase text-neutral-400 block">Schedule & Time</span>
-                    <span className="text-white font-medium">TBA</span>
+                    <span className="text-white font-medium">2.30 PM</span>
                   </div>
                 </div>
 
@@ -325,7 +325,7 @@ export default function Sofe2026Page() {
                   <Timer className="text-[#C8102E] mt-1 shrink-0" size={18} />
                   <div>
                     <span className="text-xs font-mono uppercase text-neutral-400 block">Abstract Submission Deadline</span>
-                    <span className="text-amber-400 font-medium">13 September 2026 &middot; 11:59 PM BST</span>
+                    <span className="text-amber-400 font-medium">18 September 2026 &middot; 11:59 PM BST</span>
                   </div>
                 </div>
 
@@ -358,7 +358,7 @@ export default function Sofe2026Page() {
                   <ExternalLink size={14} className="group-hover:translate-x-0.5 transition-transform" />
                 </a>
                 <span className="text-[11px] font-mono text-neutral-400 block text-center">
-                  Registration Cutoff: 13 September 2026 &middot; 11:59 PM BST
+                  Registration Cutoff: 18 September 2026 &middot; 11:59 PM BST
                 </span>
               </div>
 
@@ -653,7 +653,7 @@ export default function Sofe2026Page() {
           <div className="mt-16 p-8 sm:p-12 bg-gradient-to-r from-[#C8102E]/25 via-[#1a1a1a] to-[#141414] border border-[#C8102E]/40 rounded-2xl flex flex-col md:flex-row items-center justify-between gap-8 shadow-2xl reticle-corner">
             <div className="space-y-3 max-w-xl">
               <div className="inline-flex items-center gap-2 px-3 py-1 bg-[#C8102E]/20 border border-[#C8102E]/40 rounded text-xs font-mono tracking-widest uppercase text-[#FF4D6D] font-semibold">
-                <Timer size={13} /> Cutoff: 13 September 2026 &middot; 11:59 PM BST
+                <Timer size={13} /> Cutoff: 18 September 2026 &middot; 11:59 PM BST
               </div>
               <h3 className="font-display text-3xl sm:text-4xl text-white">
                 Ready to Enter SOfE 2026?
